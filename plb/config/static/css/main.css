@@ -1,20 +1,28 @@
 :root {
-       --header-color: #bfbfff;
-       --btn-hover: #6656ac;
-       --btn-base: #8e7dd9;
+    --header-color: #bfbfff;
+    --btn-hover: #6656ac;
+    --btn-base: #8e7dd9;
+    --main-color: #ffffff;
 }
 
 
 @font-face {
-    font-family: "Caveat-Bold";  
-    src: url("../../static/fonts/Caveat-Bold.ttf") format("truetype"); 
-    font-style: normal; 
+    font-family: "Caveat-Bold";
+    src: url("../../static/fonts/Caveat-Bold.ttf") format("truetype");
+    font-style: normal;
     font-weight: normal;
-     }
-  
+}
+
+@font-face {
+    font-family: "Caveat-Regular";
+    src: url("../../static/fonts/Caveat-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
 
 /* BASE */
-.wrapper{
+.wrapper {
     min-height: 100%;
     display: flex;
     flex-direction: column;
@@ -23,31 +31,48 @@
 
 
 
-html, body{
+html,
+body {
     height: 100%;
     animation: body-bg-down 2s;
-    
+
 
 
 
 }
 
-body{
+body {
     min-width: 334px;
 
 }
 
 
 
-main.main{
+main.main {
     flex: 1 1 auto;
     position: relative;
 
 }
-footer.footer{
+
+footer.footer {
     position: relative;
 
 }
+
+.text-sections {
+    background-color: #efe9e4;
+    border-radius: 14px;
+    box-shadow: 0px 24px 10px -14px rgba(158, 158, 158, 1);
+    text-align: center;
+    text-shadow: #6656ac;
+    padding: 4px;
+    font-size: xx-large;
+    font-family: Caveat-Regular;
+    color: var(--btn-hover);
+   
+}
+
+
 /* BASE */
 
 
@@ -56,42 +81,54 @@ footer.footer{
     color: #fff;
     background-color: var(--btn-base);
     border-color: var(--btn-base);
-    box-shadow: 0px 24px 10px -14px rgba(158,158,158,1);
+    box-shadow: 0px 24px 10px -14px var(--btn-hover);
     font-family: Caveat-Bold;
     transition: 0.1s;
     border-radius: 0.6rem;
 
-  }
+}
 
-  .btn-primary:hover {
+.btn-primary:hover {
     color: #fff;
     background-color: var(--btn-hover);
     border-color: var(--btn-hover);
-    box-shadow: 0px 24px 10px -14px rgb(62, 61, 61);
+    box-shadow: 0px 24px 10px -14px var(--btn-hover);
     font-family: Caveat-Bold;
-  }
+    transition: all 0.3s;
+}
 
-  .btn-primary:focus {
+.btn-primary:focus {
     background-color: var(--btn-hover);
-    box-shadow: 0px 24px 10px -14px rgb(62, 61, 61);
- }
+    box-shadow: 0px 24px 10px -14px var(--btn-hover);
+}
 
- .btn-primary:active {
+.btn-primary:active {
     background-color: var(--btn-hover);
     margin-top: 2px;
 
 
- /* BUTTONS */   
+    /* BUTTONS */
 
- }
+}
+
 /* HEADER */
 
 .header {
     background-color: var(--header-color);
     padding: 0.1rem;
     border-radius: 0 0 14px 14px;
-    box-shadow: 0px 24px 10px -14px rgba(158,158,158,1);
+    box-shadow: 0px 24px 10px -14px rgba(158, 158, 158, 1);
     z-index: 100;
+
+}
+
+.fixed-top {
+    background-color: var(--header-color);
+    padding: 0.1rem;
+    border-radius: 0 0 14px 14px;
+    box-shadow: 0px 24px 10px -14px rgba(158, 158, 158, 1);
+    z-index: 100;
+    transition: 5s;
 }
 
 .sl-r {
@@ -101,7 +138,18 @@ footer.footer{
     padding-top: 5px;
     padding-bottom: 5px;
     background-color: #9691ad;
-  }
+}
+
+
+ul >* {
+    list-style: none;
+    margin-top: 7px;
+    margin-right: 5px;
+}
+.top-menu {
+    display: flex;
+}
+
 /* HEADER */
 
 
@@ -110,19 +158,93 @@ footer.footer{
 
 
 .main {
-    background-color: var(--header-color);
+    background:
+        linear-gradient(var(--header-color) 0%,
+            var(--main-color) 180%);
     border-radius: 14px 14px 14px 14px;
-    box-shadow: 0px 24px 10px -14px rgba(158,158,158,1);
+    box-shadow: 0px 24px 10px -14px rgba(158, 158, 158, 1);
     align-content: start;
 
 }
 
 
+
+.bg-img {
+    opacity: .1;
+    position: absolute;
+}
+
 #about {
-    background-color: #ded4f0;
     margin-top: 5rem;
-    border-radius: 14px 14px 14px 14px;
-    box-shadow: 0px 24px 10px -14px rgba(158,158,158,1);
+    margin-bottom: 5rem;
+
+}
+
+.title {
+    margin-top: 2rem;
+    color: #fff;
+    text-align: center;
+    font-family: Caveat-Bold;
+    font-size: 80px;
+    text-shadow: 8px 8px 14px var(--btn-hover);
+
+}
+
+
+
+.base {
+
+    background-image: url('../media/kabinet.png');
+    background-size: cover;
+    
+
+}
+.base-mezoterapyya {
+    background-image: url('../media/mezoterapyya.jpeg');
+    background-size: cover;
+    
+}
+.base-piling {
+    background-image: url('../media/piling.jpeg');
+    background-size: cover;
+}
+.base-biorevitalizaciya {
+    background-image: url('../media/biorevitalizaciya.jpeg');
+    background-size: cover;
+}
+.base-chistkalica {
+    background-image: url('../media/chistkalica.jpeg');
+    background-size: cover;
+}
+.base-frakcionnaya {
+    background-image: url('../media/frakcionnaya.jpeg');
+    background-size: cover;
+    transition: all 2s;
+}
+.base-kapilyaromezoterapiay {
+    background-image: url('../media/kapilyaromezoterapiya.jpeg');
+    background-size: cover;
+}
+.base-lipolitiki {
+    background-image: url('../media/lipolitiki.jpeg');
+    background-size: cover;
+}
+.base-mononiti {
+    background-image: url('../media/mononiti.jpeg');
+    background-size: cover;
+
+}
+.base-korrekciyagub {
+    background-image: url('../media/korrekciyagub.jpeg');
+    background-size: cover;
+}
+.base-botulinoterapiya {
+    background-image: url('../media/botulinoterapiya.jpeg');
+    background-size: cover;
+}
+
+.uslugi {
+    background-color: #efe9e491;;
 }
 
 /* MAIN */
@@ -133,7 +255,7 @@ footer.footer{
 .footer {
     background-color: var(--header-color);
     border-radius: 14px 14px 0px 0px;
-    box-shadow: 0px 24px 10px -14px rgba(158,158,158,1);
+    box-shadow: 0px 24px 10px -14px rgba(158, 158, 158, 1);
 }
 
 
@@ -143,7 +265,7 @@ footer.footer{
 
 
 /* WELCOME */
-.up{
+.up {
     position: fixed;
 
 }
@@ -151,19 +273,20 @@ footer.footer{
 
 
 @keyframes up {
-  from {
-    opacity: 0;
-  }
+    from {
+        opacity: 0;
+    }
 
-  to {
-    opacity: 1;
-  }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes body-bg-down {
     from {
         background-color: rgba(191, 191, 255, 1);
     }
+
     to {
         background-color: rgba(191, 191, 255, 0);
     }
@@ -176,3 +299,25 @@ footer.footer{
 
 
 /* WELCOME */
+
+@media (max-width: 575px) { 
+    #text-about-sm {
+        font-size: large;
+    }
+
+
+
+    
+}
+@media (max-width: 1327px) { 
+
+    .title {
+        font-size: 60px;
+    }
+    .icon_base {
+        margin-left: 80px !important;
+    }
+
+
+    
+}

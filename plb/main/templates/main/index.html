@@ -2,15 +2,107 @@
 {% extends 'config/layout.html' %}
 
 {% block main %}
+<!--------------------------------------------ABOUT------------------------>
+<main id="main-about" class="main">
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-8 offset-2" id="about">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea, expedita id illo quam sapiente est vitae autem provident fugit dolore quos? Explicabo exercitationem laudantium voluptas et pariatur numquam ducimus nemo at iure. Eveniet nesciunt aspernatur eligendi saepe, quos blanditiis quibusdam. Tempore eligendi aut libero nesciunt quasi temporibus dolore vitae molestiae sed assumenda distinctio praesentium modi animi numquam perspiciatis, expedita esse enim odit explicabo hic corporis id debitis. Ut consectetur libero soluta molestias consequatur expedita id quisquam rerum fugit nulla reiciendis quod doloribus praesentium eum, possimus debitis sit optio neque. Suscipit, maxime iusto eum aut porro ad magnam doloremque voluptatem adipisci.
+ 
+  <div class="container-fluid">
+    
+    
+    <div class="row row-cols-1 row-cols-sm-2">
 
+      <div class="col-8 offset-2 d-block d-lg-none" id="about-sm" style="margin-top: 10px; margin-bottom: 30px;">
+        <h1 class="title"><img class="icon_base" src="static/media/icon_base.png" style="width: 40px; height: 50px; position: absolute; margin-left: 120px; margin-top: 5px;" alt="">Обо мне</h1><br><br>
+
+       
+        <p class="text-sections" id="text-about-sm"><img src="/static/media/selfi.png" width="120" height="200" 
+          alt="Иллюстрация" align="left" 
+          vspace="5" hspace="5">{% include "main/text_about.html" %}</p>
+          <button type="button" style="float: inline-end; margin-top: 10px; z-index: 999;" class="btn btn-primary">Записаться на консультацию</button>
+
+      </div>
+
+      <div class="col col-sm-2 offset-sm-2 d-none d-lg-block" id="about">
+       
+        <img src="/static/media/images.png" width="400" height="450" 
+          alt="Иллюстрация" align="left" 
+          vspace="5" hspace="5">
+
+      </div>
+      <div class="col col-sm-5 offset-sm-2 d-none d-lg-block"" style="margin-bottom: 23px;">
+        <div class="container-fluid about justify-content-center">
+          
+          <h1 class="title"><img class="icon_base" src="static/media/icon_base.png" style="width: 40px; height: 50px; position: absolute; margin-left: 120px; margin-top: 5px;" alt="">Обо мне</h1><br><br>
+          <p class="text-sections" id="text-about" style="margin-right: 50px;">{% include "main/text_about.html" %}</p>
+          <button type="button" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;" class="btn btn-primary">Записаться на консультацию</button>
+          <button type="button" id="btn-sticky" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999; display: none;" class="btn btn-primary">Записаться на консультацию</button>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+
+</main>
+<!--------------------------------------------ABOUT------------------------>
+
+
+<!--------------------------------------------USLUGI------------------------>
+<div class="sl-r"></div>
+<main id="main-about" class="main">
+  <div class="container-fluid base" id="base">
+    <div class="row" style="margin-bottom: 50px;">
+      <div class="col d-flex justify-content-start">
+        <h1 class="title">Мои услуги:</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col d-flex justify-content-start" style="margin-left: 50px;">
+        <ul class="uslugi-list" id="uslugi-list">
+          <li><button  onclick="Uslugi(this)"  id="base-mezoterapyya" style="width: 100%;" type="button" value="{% include 'main/text-mezoterapyya.html' %}" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;" class="btn btn-primary uslugi-item1">Мезотерапия</button></li>
+          <li><button  onclick="Uslugi(this)"  id="base-piling"  style="width: 100%;" type="button" value="{% include 'main/text-piling.html' %}" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;" class="btn btn-primary uslugi-item">Пилинг</button></li>
+          <li><button  onclick="Uslugi(this)"  id="base-kapilyaromezoterapiay"  style="width: 100%;" type="button" value="{% include 'main/text-kapilyaromezoterapiya.html' %}" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;" class="btn btn-primary uslugi-item">Капиляромезотерапия</button></li>
+          <li><button  onclick="Uslugi(this)"  id="base-frakcionnaya"  style="width: 100%;" type="button" value="{% include 'main/text-frakcionnaya.html' %}" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;" class="btn btn-primary uslugi-item">Фракционная мезотерапия</button></li>
+          <li><button  onclick="Uslugi(this)"  id="base-mononiti"  style="width: 100%;" type="button" value="{% include 'main/text-mononiti.html' %}" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;" class="btn btn-primary uslugi-item">Мононити</button></li>
+          <li><button  onclick="Uslugi(this)"  id="base-botulinoterapiya"  style="width: 100%;" type="button" value="{% include 'main/text-botulinoterapiya.html' %}" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;" class="btn btn-primary uslugi-item">Ботулинотерапия</button></li>
+          <li><button  onclick="Uslugi(this)"  id="base-lipolitiki"  style="width: 100%;" type="button" value="{% include 'main/text-lipolitiki.html' %}" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;" class="btn btn-primary uslugi-item">Липолитики</button></li>
+          <li><button  onclick="Uslugi(this)"  id="base-korrekciyagub"  style="width: 100%;" type="button" value="{% include 'main/text-korrekciyagub.html' %}" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;" class="btn btn-primary uslugi-item">Коррекция губ</button></li>
+          <li><button  onclick="Uslugi(this)"  id="base-chistkalica"  style="width: 100%;" type="button" value="{% include 'main/text-chistkalica.html' %}" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;" class="btn btn-primary uslugi-item">Чистка лица</button></li>
+          <li><button  onclick="Uslugi(this)"  id="base-biorevitalizaciya"  style="width: 100%;" type="button" value="{% include 'main/text-biorevitalizaciya.html' %}" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;" class="btn btn-primary uslugi-item">Биоревитализация</button></li>
+        </ul>
+      </div>
+      <div class="col d-flex justify-content-center" style="margin-right: 50px;">
+        <p class="text-sections uslugi" id="text-uslugi">{% include "main/text_uslugi_base.html" %}</p>
+
+      </div>
+    </div>
+  </div>
+
+ <script>
+
+    function Uslugi(obj){
+    var val = obj.value;
+    var targ = document.getElementById('text-uslugi');
+    var bg = document.getElementById('base')
+    targ.textContent=val;
+    bg.setAttribute('style', '');
+    bg.setAttribute('style', 'animation: up 2s');
+    bg.setAttribute('class', `container-fluid ${obj.id}`);
+    setTimeout(() => {
+      bg.setAttribute('style', '');
+}   , "2000");
+ 
+
+  }
+ </script>
+  
+</main>
+
+<!--------------------------------------------USLUGI------------------------>
+<div class="sl-r"></div>
+<main id="main-next" class="main">
+  
+
+</main>
+
 
 
 

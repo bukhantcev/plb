@@ -14,36 +14,43 @@
 <body>
     <div class="wrapper">
 
-        <header class="header">
-            <div class="container-fluid" id="cont-header">
-                <div class="row">
-                    <div class="col" id="cont-logo">
-                        <img width="150px" style="margin-left: 2rem;" src="../../static/media/logoplb.png" alt="">
-                    </div>
-                    <div class="col" style="margin-top: 6px; margin-right: 2rem;">
-                        <button type="button" style="float: inline-end;" class="btn btn-primary">Menu</button>
-                    </div>
-                </div>
-            </div>
+        <header class="header" id="header">
+            {% include "main/header.html" %}
 
 
 
 
         </header>
-        <div class="sl-r"></div>
-        <main id="main" class="main">
-            {% block main %}{% endblock %}
+
+        <header class="header fixed-top" id="header1" style="visibility: hidden; position: absolute; z-index: -1;">
+            {% include "main/header.html" %}
+    </div>
 
 
-        </main>
-        <div class="sl-r"></div>
-        <footer id="footer" class="footer">
-            footer
-        </footer>
+
+
+    </header>
+    <div class="sl-r"></div>
+    {% block main %}{% endblock %}
+    <div class="sl-r"></div>
+    <footer id="footer" class="footer">
+        footer
+    </footer>
     </div>
 
     <script src="../../static/js/bootstrap5.js"></script>
     <script src="../../static/js/icon_awesome.js"></script>
+    <script>
+        var element = document.getElementById('header1');
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 40) {
+                element.setAttribute("style", "visibility: visible;");
+            }
+            else {
+                element.setAttribute("style", "visibility: hidden; position: absolute; z-index: -1;");
+            }
+        });
+    </script>
 </body>
 
 </html>
