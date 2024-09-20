@@ -80,6 +80,10 @@ footer.footer {
 
 
 /* BUTTONS */
+.btn {
+    font-size: 1.3rem;
+}
+
 .btn-primary {
     color: #fff;
     background-color: var(--btn-base);
@@ -116,6 +120,7 @@ footer.footer {
 
 .btn-sticky {
     background-color: var(--btn-base-transperency);
+    width: 20%;
 }
 .abtn {
     text-decoration: none;
