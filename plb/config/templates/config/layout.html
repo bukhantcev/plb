@@ -14,7 +14,7 @@
 <body>
     <div class="wrapper">
 
-        <header class="header" id="header">
+        <header class="header" id="header" style="position: fixed; width: 100%;">
             {% include "main/header.html" %}
 
 
@@ -22,25 +22,25 @@
 
         </header>
 
-        <header class="header fixed-top" id="header1" style="visibility: hidden; position: absolute; z-index: -1;">
+        <!-- <header class="header fixed-top" id="header1" style="visibility: hidden; position: absolute; z-index: -1;">
             {% include "main/header.html" %}
-    </div>
 
 
 
 
-    </header>
-    <div class="sl-r"></div>
-    {% block main %}{% endblock %}
-    <div class="sl-r"></div>
-    <footer id="footer" class="footer">
-        footer
-    </footer>
+
+        </header> -->
+        <div class="sl-r" style="height: 73px;"></div>
+        {% block main %}{% endblock %}
+        <div class="sl-r"></div>
+        <footer id="footer" class="footer">
+            footer
+        </footer>
     </div>
 
     <script src="../../static/js/bootstrap5.js"></script>
     <script src="../../static/js/icon_awesome.js"></script>
-    <script>
+    <!-- <script>
         var element = document.getElementById('header1');
         window.addEventListener('scroll', function () {
             if (window.scrollY > 40) {
@@ -50,7 +50,7 @@
                 element.setAttribute("style", "visibility: hidden; position: absolute; z-index: -1;");
             }
         });
-    </script>
+    </script> -->
 </body>
 
 </html>

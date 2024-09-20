@@ -35,7 +35,7 @@
           <h1 class="title"><img class="icon_base" src="static/media/icon_base.png" style="width: 40px; height: 50px; position: absolute; margin-left: 120px; margin-top: 5px;" alt="">Обо мне</h1><br><br>
           <p class="text-sections" id="text-about" style="margin-right: 50px;">{% include "main/text_about.html" %}</p>
           <button type="button" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;" class="btn btn-primary">Записаться на консультацию</button>
-          <button type="button" id="btn-sticky" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999; display: none;" class="btn btn-primary">Записаться на консультацию</button>
+          <button type="button" id="btn-sticky" style="position: fixed; right: 5%; top: 15%; opacity: 1; z-index: 998;" class="btn btn-primary btn-sticky">Записаться на консультацию</button>
         </div>
       </div>
     </div>
@@ -47,34 +47,50 @@
 
 <!--------------------------------------------USLUGI------------------------>
 <div class="sl-r"></div>
-<main id="main-about" class="main">
+<main id="main-uslugi" class="main">
   <div class="container-fluid base" id="base">
     <div class="row" style="margin-bottom: 50px;">
-      <div class="col d-flex justify-content-start">
+      <div class="col d-none d-lg-flex justify-content-start">
         <h1 class="title">Мои услуги:</h1>
       </div>
+      <div class="col d-flex justify-content-start">
+      <button class="btn btn-primary d-block d-lg-none" style="margin-top: 20px;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        Посмотреть услуги
+      </button>
+    </div>
+
     </div>
     <div class="row">
-      <div class="col d-flex justify-content-start" style="margin-left: 50px;">
-        <ul class="uslugi-list" id="uslugi-list">
-          <li><button  onclick="Uslugi(this)"  id="base-mezoterapyya" style="width: 100%;" type="button" value="{% include 'main/text-mezoterapyya.html' %}" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;" class="btn btn-primary uslugi-item1">Мезотерапия</button></li>
-          <li><button  onclick="Uslugi(this)"  id="base-piling"  style="width: 100%;" type="button" value="{% include 'main/text-piling.html' %}" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;" class="btn btn-primary uslugi-item">Пилинг</button></li>
-          <li><button  onclick="Uslugi(this)"  id="base-kapilyaromezoterapiay"  style="width: 100%;" type="button" value="{% include 'main/text-kapilyaromezoterapiya.html' %}" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;" class="btn btn-primary uslugi-item">Капиляромезотерапия</button></li>
-          <li><button  onclick="Uslugi(this)"  id="base-frakcionnaya"  style="width: 100%;" type="button" value="{% include 'main/text-frakcionnaya.html' %}" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;" class="btn btn-primary uslugi-item">Фракционная мезотерапия</button></li>
-          <li><button  onclick="Uslugi(this)"  id="base-mononiti"  style="width: 100%;" type="button" value="{% include 'main/text-mononiti.html' %}" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;" class="btn btn-primary uslugi-item">Мононити</button></li>
-          <li><button  onclick="Uslugi(this)"  id="base-botulinoterapiya"  style="width: 100%;" type="button" value="{% include 'main/text-botulinoterapiya.html' %}" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;" class="btn btn-primary uslugi-item">Ботулинотерапия</button></li>
-          <li><button  onclick="Uslugi(this)"  id="base-lipolitiki"  style="width: 100%;" type="button" value="{% include 'main/text-lipolitiki.html' %}" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;" class="btn btn-primary uslugi-item">Липолитики</button></li>
-          <li><button  onclick="Uslugi(this)"  id="base-korrekciyagub"  style="width: 100%;" type="button" value="{% include 'main/text-korrekciyagub.html' %}" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;" class="btn btn-primary uslugi-item">Коррекция губ</button></li>
-          <li><button  onclick="Uslugi(this)"  id="base-chistkalica"  style="width: 100%;" type="button" value="{% include 'main/text-chistkalica.html' %}" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;" class="btn btn-primary uslugi-item">Чистка лица</button></li>
-          <li><button  onclick="Uslugi(this)"  id="base-biorevitalizaciya"  style="width: 100%;" type="button" value="{% include 'main/text-biorevitalizaciya.html' %}" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;" class="btn btn-primary uslugi-item">Биоревитализация</button></li>
-        </ul>
-      </div>
-      <div class="col d-flex justify-content-center" style="margin-right: 50px;">
+      <div class="col justify-content-start d-none d-lg-flex" style="margin-left: 50px;">
+      {% include "main/list-uslugi.html" %} <!----------LIST USLUGI---------->
+    </div>
+      <div class="col justify-content-center col-uslugi">
+        <h1 class="title title-uslugi" id="title-uslugi"></h1>
         <p class="text-sections uslugi" id="text-uslugi">{% include "main/text_uslugi_base.html" %}</p>
 
       </div>
     </div>
   </div>
+
+
+  <!----------OFFCANVAS------------------------------------->
+
+
+  
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Услуги</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div>
+        {% include "main/list-uslugi.html" %}<br><br>
+        <button type="button" data-bs-dismiss="offcanvas" style="z-index: 999; margin-left: 29px;" class="btn btn-primary">Записаться на консультацию</button>
+
+      </div>
+    </div>
+  </div>
+    <!----------OFFCANVAS------------------------------------->
 
  <script>
 
@@ -86,6 +102,7 @@
     bg.setAttribute('style', '');
     bg.setAttribute('style', 'animation: up 2s');
     bg.setAttribute('class', `container-fluid ${obj.id}`);
+    document.getElementById('title-uslugi').textContent=obj.title
     setTimeout(() => {
       bg.setAttribute('style', '');
 }   , "2000");
@@ -94,12 +111,24 @@
   }
  </script>
   
+
+  <script>
+    var btnstk = document.getElementById('btn-sticky');
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 650) {
+          btnstk.setAttribute("style", "position: fixed; right: 5%; top: 10%; opacity: 1; z-index: 999;");
+        }
+        else {
+          btnstk.setAttribute("style", "position: fixed; right: 5%; top: 10%; opacity: 0; z-index: 999;");
+        }
+    });
+</script>
 </main>
 
 <!--------------------------------------------USLUGI------------------------>
 <div class="sl-r"></div>
 <main id="main-next" class="main">
-  
+  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae suscipit facere autem error reprehenderit quisquam, dolore ab a delectus at cumque non corporis, officia commodi asperiores aliquid consectetur modi aliquam facilis. Error enim officia ducimus neque. Eius maiores vel rem veritatis repudiandae suscipit labore. Eveniet deleniti consequatur temporibus cupiditate voluptate tempore optio quas harum recusandae, distinctio, repellat suscipit neque mollitia maiores voluptatibus. Ducimus itaque voluptates, temporibus quod exercitationem, dolorum vel maiores ad, maxime voluptatem neque voluptas minima modi enim excepturi ratione! Eaque quasi voluptatibus, enim fuga vitae, libero dignissimos labore rerum a omnis asperiores exercitationem expedita mollitia. Aspernatur, deserunt officia? Deserunt blanditiis beatae ea, repudiandae rerum quas saepe modi similique! Libero, laudantium! Nisi doloremque ea, repellendus perferendis amet, dolorum unde totam voluptatum nostrum, quibusdam facere optio atque beatae repellat placeat fugiat itaque accusantium vel similique tempore eaque neque. Quis dolor doloremque alias vel, eos dolorem, architecto veniam eveniet iste, reprehenderit neque. Quas inventore ab tempora error magnam quam amet at nemo beatae! Commodi accusamus possimus dolore, tempore similique asperiores dolorum. Nam voluptatem animi culpa, ad deleniti nulla consequatur perspiciatis laboriosam facere, tempore eum facilis tempora libero ratione soluta maiores placeat odio deserunt reprehenderit, incidunt accusamus. Sit dignissimos, optio eum reprehenderit molestias velit delectus autem quae! Illo suscipit error debitis quod quo, in quisquam corrupti labore perferendis aspernatur, non amet expedita iusto! Quibusdam pariatur animi error necessitatibus consequuntur veniam cum sit quos nisi, corrupti repellat quasi quae sint expedita. Earum culpa vitae nam veniam fuga magnam facere quo aut inventore, recusandae esse fugiat, quisquam minima, eos unde odio? Officia dignissimos accusantium fugiat aut harum omnis illum mollitia laborum rem quo, atque, voluptatem animi ad eum exercitationem illo consequatur! Sit consequatur sint deserunt voluptatem omnis id expedita at incidunt magnam eos mollitia libero possimus voluptate minima facilis iure placeat assumenda, consequuntur excepturi fugit nobis delectus! Repudiandae, dicta dolor! Amet perferendis eius iure sunt alias nemo reprehenderit facere numquam animi quae illum nulla odit corporis excepturi accusantium non a, placeat sit temporibus recusandae laudantium quis in. Mollitia minus est quae. Ex impedit eius sint, sapiente porro rerum cumque ipsum officiis nulla inventore fugit omnis neque sunt voluptas? Optio assumenda, delectus earum magnam tenetur, sit rerum id quibusdam aliquid quidem voluptates temporibus ad voluptatum doloribus corporis autem nemo dignissimos vero veniam? Itaque corrupti, omnis doloremque ex atque optio facere qui fuga, voluptatum tenetur repellendus animi illum nihil enim voluptatibus amet, recusandae quibusdam. Qui minima dolore doloribus quos est itaque quisquam perspiciatis consectetur dicta? Mollitia sapiente laudantium laboriosam, pariatur ratione eligendi labore, illum aliquam ad quam porro veritatis vero aperiam repellat libero tenetur eveniet? Minus tempore maiores, ad fugiat eum enim repellat, sapiente soluta perspiciatis adipisci mollitia quia saepe architecto eligendi a commodi labore, autem deleniti vel! Quos aliquid repellendus, perspiciatis tempora quis aut id voluptas delectus? Officiis ipsam aliquam vel laudantium velit, nam error enim aliquid voluptate aperiam veritatis recusandae dolorem, deserunt totam voluptatum maiores placeat tenetur perspiciatis, tempore facere. Possimus nemo quisquam eveniet alias recusandae debitis magni voluptate dolorem nisi ea aut odio sunt reiciendis, cumque molestiae quae illum assumenda dolor tempora in quidem eligendi ipsa? Id illum sequi quibusdam nulla asperiores veritatis tempore animi molestias impedit mollitia recusandae at accusantium ea voluptatibus, corporis architecto. Quod rerum eos recusandae architecto veniam, unde asperiores est odio non possimus exercitationem dolores quis facere rem maxime earum ea sapiente voluptas molestiae accusamus voluptatem laboriosam vero corrupti impedit. Eum similique ipsam iusto nostrum neque repellat. Dignissimos deleniti maiores hic incidunt? Aspernatur dolores debitis aut ut reiciendis deleniti nemo excepturi dicta molestias animi nam similique a doloremque laborum provident error praesentium, odio voluptates quia sed? Explicabo possimus accusantium ullam repudiandae odio quidem autem, dolorem dolores tempore esse necessitatibus ea eaque? Sit, dolorum aliquam magni fugiat architecto consequuntur excepturi ea aspernatur dignissimos quidem quod, provident molestiae rem praesentium nihil expedita commodi animi in dicta. Rem obcaecati itaque libero accusamus. Rerum repellendus ipsum, nobis numquam quidem quia at quibusdam a ducimus praesentium voluptatibus animi reiciendis consectetur dicta error perspiciatis ex nesciunt sit quasi sed magni aspernatur minima. Necessitatibus porro, libero animi, eos ullam laudantium, nemo explicabo aspernatur quam repellat fugit officia voluptate quod consequuntur temporibus ratione consequatur? Dolorem, cupiditate? Iste, illum. Veniam delectus officia provident quaerat expedita quidem esse iste ratione consequatur explicabo veritatis cupiditate laudantium placeat sint eos nostrum, necessitatibus enim, cum distinctio sunt suscipit libero voluptate. Explicabo expedita itaque ratione delectus nesciunt incidunt exercitationem! Quidem, perspiciatis quis provident eveniet quia voluptatem cumque? Voluptatum ipsum et voluptates veniam. Consequatur in magnam quos eius assumenda saepe totam magni expedita porro, esse nobis alias illum error iure laudantium ab aliquam omnis fuga incidunt explicabo aut distinctio, cum nam. Maxime magni, tenetur excepturi fugiat eius veniam sunt ipsa eaque cumque molestiae quasi animi saepe dolores quas unde enim nam. Est labore delectus porro maiores fugiat repudiandae praesentium sequi nemo, qui tempore quam odit illum tenetur doloremque dolore ipsam eaque distinctio hic harum. Error enim deserunt, voluptate eos repellat ipsa omnis aspernatur voluptatum magnam nostrum quas ipsam quos non magni blanditiis doloremque ipsum possimus vitae saepe nihil. Explicabo, molestias? Iste, ab a repellat blanditiis quis cum earum itaque culpa maxime sapiente beatae assumenda impedit necessitatibus inventore autem aut porro? Dolor dignissimos quasi, obcaecati sint accusantium animi dicta consectetur quo ex. Reprehenderit aut pariatur praesentium sunt delectus quasi consequatur, cumque quae excepturi vel, explicabo ipsa porro facilis inventore tempore. Ipsum alias totam maxime modi eaque repudiandae ratione at odit nobis perferendis omnis, aliquam maiores itaque quisquam natus, optio cupiditate sunt, enim magnam minus hic consequuntur accusamus nihil ab. Voluptates, repellat, dolor nemo facilis hic voluptas accusantium fugit reiciendis voluptate quibusdam, magnam quas illo? Consequuntur quia quae et voluptate dolorum, dolores corrupti temporibus? Odit excepturi aliquid voluptatibus itaque, quidem nihil suscipit. Esse suscipit explicabo voluptatem eius, quasi magnam nulla est? Ipsa laborum natus explicabo consequuntur dolores voluptatem ad cupiditate aut odio cum odit repudiandae iure cumque, perferendis illum excepturi reiciendis blanditiis tenetur necessitatibus fuga repellat aspernatur? Autem id dolore placeat reprehenderit possimus repellendus rem facilis natus cumque, blanditiis optio vitae, officia, quisquam voluptates laborum distinctio?
 
 </main>
 

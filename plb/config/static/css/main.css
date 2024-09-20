@@ -2,6 +2,7 @@
     --header-color: #bfbfff;
     --btn-hover: #6656ac;
     --btn-base: #8e7dd9;
+    --btn-base-transperency: #8e7dd97b;
     --main-color: #ffffff;
 }
 
@@ -51,6 +52,8 @@ body {
 main.main {
     flex: 1 1 auto;
     position: relative;
+    min-height: 800px;
+    scroll-margin-top: 72px;
 
 }
 
@@ -107,9 +110,19 @@ footer.footer {
     margin-top: 2px;
 
 
-    /* BUTTONS */
+   
 
 }
+
+.btn-sticky {
+    background-color: var(--btn-base-transperency);
+}
+.abtn {
+    text-decoration: none;
+    color: #fff;
+}
+
+ /* BUTTONS */
 
 /* HEADER */
 
@@ -200,54 +213,99 @@ ul >* {
 
 }
 .base-mezoterapyya {
-    background-image: url('../media/mezoterapyya.jpeg');
-    background-size: cover;
+    background-image: url('../media/mezoterapyya.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
     
 }
 .base-piling {
-    background-image: url('../media/piling.jpeg');
-    background-size: cover;
+    background-image: url('../media/piling.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 .base-biorevitalizaciya {
-    background-image: url('../media/biorevitalizaciya.jpeg');
-    background-size: cover;
+    background-image: url('../media/biorevitalizaciya.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 .base-chistkalica {
-    background-image: url('../media/chistkalica.jpeg');
-    background-size: cover;
+    background-image: url('../media/chistkalica.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 .base-frakcionnaya {
-    background-image: url('../media/frakcionnaya.jpeg');
-    background-size: cover;
-    transition: all 2s;
+    background-image: url('../media/frakcionnaya.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+
 }
 .base-kapilyaromezoterapiay {
-    background-image: url('../media/kapilyaromezoterapiya.jpeg');
-    background-size: cover;
+    background-image: url('../media/kapilyaromezoterapiya.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 .base-lipolitiki {
-    background-image: url('../media/lipolitiki.jpeg');
-    background-size: cover;
+    background-image: url('../media/lipolitiki.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 .base-mononiti {
-    background-image: url('../media/mononiti.jpeg');
-    background-size: cover;
+    background-image: url('../media/mononiti.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
 
 }
 .base-korrekciyagub {
-    background-image: url('../media/korrekciyagub.jpeg');
-    background-size: cover;
+    background-image: url('../media/korrekciyagub.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 .base-botulinoterapiya {
-    background-image: url('../media/botulinoterapiya.jpeg');
-    background-size: cover;
+    background-image: url('../media/botulinoterapiya.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 .uslugi {
     background-color: #efe9e491;;
 }
 
+.title-uslugi {
+    margin-top: 0;
+}
+
+.col-uslugi {
+    margin-right: 50px;
+}
+
 /* MAIN */
+
+
+
+
+/*OFFCANVAS*/
+
+.offcanvas {
+    position: fixed;
+    bottom: 0;
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    max-width: 60%;
+    max-height: 700px;
+    visibility: hidden;
+    background-color: var(--btn-base-transperency);
+    background-clip: padding-box;
+    outline: 0;
+    transition: transform .3s ease-in-out;
+    border-radius: 0px 14px 14px 0px;
+  }
+
+  .offcanvas-body {
+
+    padding: 1rem 0rem;
+
+  }
 
 
 /* FOOTER */
@@ -307,6 +365,8 @@ ul >* {
 
 
 
+
+
     
 }
 @media (max-width: 1327px) { 
@@ -319,5 +379,18 @@ ul >* {
     }
 
 
+
+    
+}
+@media (max-width: 575px) { 
+  .title-uslugi {
+    font-size: 40px;
+  }
+  
+}
+@media (max-width: 990px) { 
+    .col-uslugi {
+        margin-right: 0px;
+    }
     
 }
