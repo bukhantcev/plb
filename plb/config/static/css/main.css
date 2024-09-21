@@ -20,6 +20,12 @@
     font-style: normal;
     font-weight: normal;
 }
+@font-face {
+    font-family: "Roboto-Italic";
+    src: url("../../static/fonts/Roboto-Italic.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
 
 
 /* BASE */
@@ -70,7 +76,7 @@ footer.footer {
     text-shadow: #6656ac;
     padding: 4px;
     font-size: xx-large;
-    font-family: Caveat-Regular;
+    font-family: Roboto-Italic;
     color: var(--btn-hover);
    
 }
