@@ -80,6 +80,18 @@ footer.footer {
     color: var(--btn-hover);
    
 }
+.title {
+    margin-top: 2rem;
+    color: #fff;
+    text-align: center;
+    font-family: Caveat-Bold;
+    font-size: 80px;
+    text-shadow: 8px 8px 14px var(--btn-hover);
+
+}
+.title-group {
+    font-size: 50px;
+}
 
 
 /* BASE */
@@ -195,6 +207,10 @@ ul >* {
 
 }
 
+.main-adres {
+    min-height: auto !important;
+}
+
 
 
 .bg-img {
@@ -209,15 +225,7 @@ ul >* {
 }
 
 
-.title {
-    margin-top: 2rem;
-    color: #fff;
-    text-align: center;
-    font-family: Caveat-Bold;
-    font-size: 80px;
-    text-shadow: 8px 8px 14px var(--btn-hover);
 
-}
 
 
 
