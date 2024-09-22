@@ -3,23 +3,29 @@
                     <div class="col" id="cont-logo">
                         <a href="#" style="visibility: hidden;" id="logo-header"><img width="150px" style="margin-left: 2rem;" src="../../static/media/logoplb.png" alt=""></a>
                     </div>
+                    <div class="col d-flex justify-content-end" id="tg" style="margin-top: 27px;  visibility: hidden;">
+                      <i class="fa-brands fa-telegram fa-xl" style="color: #fafcff;"></i>
+                    </div>
                     <div class="col-8 d-none d-xl-flex justify-content-end top-menu">
                         <ul style="display: inline-flex;">
-                            {% include "main/menu.html" %}
+                            {% include "main/menu.html" %} 
                         </ul>
                     </div>
-                    <div class="col d-block d-xl-none" style="margin-top: 6px; margin-right: 2rem;">
-                        <button id="btmenu" type="button" style="float: inline-end;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu" class="btn btn-primary">Menu</button>
+                    <div class="col d-block d-xl-none">
+                        <button id="btmenu" type="button" style="float: inline-end;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu" class="btn btn-primary btn-menu"><i class="fa-solid fa-bars fa-flip-horizontal fa-lg" style="color: #ffffff;"></i></button>
                     </div>
                 </div>
                 <script>
                     var logo = document.getElementById('logo-header');
+                    var tg = document.getElementById('tg');
                     window.addEventListener('scroll', function () {
                       if (window.scrollY > 30) {
                         logo.setAttribute("style", "visibility: visible;");
+                        tg.setAttribute("style", "visibility: visible; margin-top: 27px;");
                       }
                       else {
                         logo.setAttribute("style", "visibility: hidden;");
+                        tg.setAttribute("style", "visibility: hidden; margin-top: 27px;");
                       }
                     });
                   </script>

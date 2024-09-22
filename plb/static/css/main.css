@@ -59,7 +59,7 @@ main.main {
     flex: 1 1 auto;
     position: relative;
     min-height: 800px;
-    scroll-margin-top: 72px;
+    scroll-margin-top: 60px;
 
 }
 .main {
@@ -69,6 +69,9 @@ main.main {
     border-radius: 14px 14px 14px 14px;
     box-shadow: 0px 24px 10px -14px rgba(158, 158, 158, 1);
     align-content: start;
+    border-color: #fff;
+    border-width: 2px;
+    border-style: solid;
 
 }
 
@@ -84,7 +87,7 @@ footer.footer {
 }
 
 .text-sections {
-    background-color: #efe9e4;
+    background-color: #ffffff8b;
     border-radius: 14px;
     box-shadow: 0px 24px 10px -14px rgba(158, 158, 158, 1);
     text-align: center;
@@ -115,6 +118,9 @@ footer.footer {
     
     margin-left: 30px;
     text-shadow: 8px 8px 14px var(--btn-hover);
+    margin-top: 30px;
+    
+    
 
 }
 
@@ -123,6 +129,7 @@ footer.footer {
     margin-left: 0px;
     margin-right: 30px;
     margin-bottom: 50px;
+    margin-top: 0px;
 
 }
 
@@ -132,16 +139,22 @@ footer.footer {
 /* BUTTONS */
 .btn {
     font-size: 1.3rem;
+    border-color: #fff;
+    border-width: 2px;
+    border-style: solid;
 }
+
 
 .btn-primary {
     color: #fff;
     background-color: var(--btn-base);
-    border-color: var(--btn-base);
     box-shadow: 0px 24px 10px -14px var(--btn-hover);
     font-family: Caveat-Bold;
     transition: 0.1s;
     border-radius: 0.6rem;
+    border-color: #ffffff7b;
+    border-width: 1px;
+    border-style: solid;
 
 }
 
@@ -162,10 +175,20 @@ footer.footer {
 .btn-primary:active {
     background-color: var(--btn-hover);
     margin-top: 2px;
+}
+.btn-menu:active {
+    background-color: var(--header-color);
+    margin-top: 2px;
+}
+.btn-menu:focus {
+    background-color: var(--header-color);
+    box-shadow: 0px 24px 10px -14px var(--btn-hover);
+    border-color: #fff;
+}
 
 
-   
-
+.btn-menu {
+    background-color: var(--header-color);
 }
 
 .btn-sticky {
@@ -186,6 +209,9 @@ footer.footer {
     border-radius: 0 0 14px 14px;
     box-shadow: 0px 24px 10px -14px rgba(158, 158, 158, 1);
     z-index: 100;
+    border-color: #fff;
+    border-width: 1.5px;
+    border-style: solid;
 
 }
 
