@@ -76,9 +76,7 @@ main.main {
     min-height: auto !important;
 }
 
-.main-start {
-    min-height: auto !important;
-}
+
 
 footer.footer {
     position: relative;
@@ -284,6 +282,11 @@ ul >* {
     margin-right: 50px;
 }
 
+.col-group {
+    background-size: 0%;
+    background-repeat: no-repeat;
+}
+
 /* MAIN */
 
 
@@ -429,6 +432,15 @@ ul >* {
         margin-left: 0px;
 
 
+    }
+    
+}
+@media (max-width: 671px) { 
+    .col-group {
+        background-size: 100%;
+    }
+    .base {
+        background-size: 0%;
     }
     
 }
