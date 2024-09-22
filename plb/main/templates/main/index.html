@@ -3,32 +3,48 @@
 {% block main %}
 
 
+<div class="sl-r"></div>
+<main id="main-start" class="main main-start">
+  <div class="row">
+    <div class="col logo-start" id="cont-logo-start">
+      <img width="100%" style="padding: 20px; padding-bottom: 0px;" src="../../static/media/logoplb.png" alt="">
+      <h1 class="title-logo" id="title-logo" style="display: none;">Косметология...</h1>
+      <h1 class="title-logo title-logo-2" id="title-logo-2" style="display: none;">...ради Красоты</h1>
+  </div>
+  </div>
+</main>
+<script>
+  window.addEventListener('load', () => {
+    $( "#title-logo" ).fadeIn(2000);
+    $( "#title-logo-2" ).fadeIn(4000);
+    setTimeout(function(){
+  $('#tm2').trigger('click');
+}, 6000);
+
+
+});
+
+</script>
 <!--------------------------------------------USLUGI------------------------>
 <div class="sl-r"></div>
 <main id="main-uslugi" class="main">
+  
   <div class="container-fluid base" id="base">
-    <div class="row" style="margin-bottom: 50px;">
-      <div class="col d-none d-lg-flex justify-content-start">
-        <h1 class="title">Мои услуги:</h1>
-      </div>
-      <div class="col d-flex justify-content-start">
-        <button class="btn btn-primary d-block d-lg-none" style="margin-top: 20px;" type="button"
-          data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-          Посмотреть услуги
-        </button>
-      </div>
 
-    </div>
     <div class="row">
-      <div class="col justify-content-start d-none d-lg-flex" style="margin-left: 50px;">
-        {% include "main/list-uslugi.html" %} <!----------LIST USLUGI---------->
-      </div>
-      <div class="col justify-content-center col-uslugi">
-        <h1 class="title title-uslugi" id="title-uslugi"></h1>
-        <p class="text-sections uslugi" id="text-uslugi">{% include "main/text_uslugi_base.html" %}</p>
+      {% for group in groups %}
+      <div class="col d-block justify-content-center group-{{ group.id }}">
+        <h1 class="title title-group">{{ group.name }}:</h1>
+        {% for usluga in uslugi %}
+        {% if usluga.group.name == group.name %}
+        <button type="button" class="btn btn-primary w-100" style="margin-bottom: 10px;">{{ usluga.name }}</button>
+        {% endif %}
+        {% endfor %}
 
       </div>
+      {% endfor %}
     </div>
+    
   </div>
 </main>
 <!--------------------------------------------USLUGI------------------------>
@@ -125,24 +141,7 @@
 </div>
 <!----------OFFCANVAS-MENU------------------------------------>
 
-<script>
 
-  function Uslugi(obj) {
-    var val = obj.value;
-    var targ = document.getElementById('text-uslugi');
-    var bg = document.getElementById('base')
-    targ.textContent = val;
-    bg.setAttribute('style', '');
-    bg.setAttribute('style', 'animation: up 2s');
-    bg.setAttribute('class', `container-fluid ${obj.id}`);
-    document.getElementById('title-uslugi').textContent = obj.title
-    setTimeout(() => {
-      bg.setAttribute('style', '');
-    }, "2000");
-
-
-  }
-</script>
 
 
 <script>
@@ -162,20 +161,7 @@
 <div class="sl-r"></div>
 <main id="main-next" class="main">
   <div class="container-fluid">
-    <div class="row">
-      {% for group in groups %}
-      <div class="col d-block justify-content-center">
-        <h1 class="title title-group">{{ group.name }}:</h1>
-        {% for usluga in uslugi %}
-        {% if usluga.group.name == group.name %}
-        <button type="button"
-        class="btn btn-primary w-100" style="margin-bottom: 10px;">{{ usluga.name }}</button>
-        {% endif %}
-        {% endfor %}
-
-      </div>
-      {% endfor %}
-    </div>
+    
   </div>
 
 </main>

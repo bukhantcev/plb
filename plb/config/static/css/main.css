@@ -62,6 +62,23 @@ main.main {
     scroll-margin-top: 72px;
 
 }
+.main {
+    background:
+        linear-gradient(var(--header-color) 0%,
+            var(--main-color) 180%);
+    border-radius: 14px 14px 14px 14px;
+    box-shadow: 0px 24px 10px -14px rgba(158, 158, 158, 1);
+    align-content: start;
+
+}
+
+.main-adres {
+    min-height: auto !important;
+}
+
+.main-start {
+    min-height: auto !important;
+}
 
 footer.footer {
     position: relative;
@@ -92,7 +109,24 @@ footer.footer {
 .title-group {
     font-size: 50px;
 }
+.title-logo {
+    color: #fff;
+    text-align: start;
+    font-family: Caveat-Bold;
+    font-size: 40px;  
+    
+    margin-left: 30px;
+    text-shadow: 8px 8px 14px var(--btn-hover);
 
+}
+
+.title-logo-2 {
+    text-align: end;
+    margin-left: 0px;
+    margin-right: 30px;
+    margin-bottom: 50px;
+
+}
 
 /* BASE */
 
@@ -174,6 +208,15 @@ footer.footer {
     padding-bottom: 5px;
     background-color: #9691ad;
 }
+.sl-r-header {
+    height: 65px;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #9691ad;
+}
 
 
 ul >* {
@@ -197,20 +240,6 @@ ul >* {
 /* MAIN */
 
 
-.main {
-    background:
-        linear-gradient(var(--header-color) 0%,
-            var(--main-color) 180%);
-    border-radius: 14px 14px 14px 14px;
-    box-shadow: 0px 24px 10px -14px rgba(158, 158, 158, 1);
-    align-content: start;
-
-}
-
-.main-adres {
-    min-height: auto !important;
-}
-
 
 
 .bg-img {
@@ -230,64 +259,17 @@ ul >* {
 
 
 .base {
+    min-height: 800px;
+    width: 100%;
 
     background-image: url('../media/kabinet.png');
-    background-size: cover;
-    
-
-}
-.base-mezoterapyya {
-    background-image: url('../media/mezoterapyya.png');
     background-size: 100%;
     background-repeat: no-repeat;
     
-}
-.base-piling {
-    background-image: url('../media/piling.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
-.base-biorevitalizaciya {
-    background-image: url('../media/biorevitalizaciya.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
-.base-chistkalica {
-    background-image: url('../media/chistkalica.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
-.base-frakcionnaya {
-    background-image: url('../media/frakcionnaya.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
 
 }
-.base-kapilyaromezoterapiay {
-    background-image: url('../media/kapilyaromezoterapiya.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
-.base-lipolitiki {
-    background-image: url('../media/lipolitiki.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
-.base-mononiti {
-    background-image: url('../media/mononiti.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
-
-}
-.base-korrekciyagub {
-    background-image: url('../media/korrekciyagub.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
-.base-botulinoterapiya {
-    background-image: url('../media/botulinoterapiya.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
+.Инъекционная косметология{
+    display: none;
 }
 
 .uslugi {
@@ -426,6 +408,27 @@ ul >* {
 @media (max-width: 990px) { 
     .col-uslugi {
         margin-right: 0px;
+    }
+    
+}
+
+@media (max-width: 1199px) { 
+    .sl-r-header {
+        height: 50px;
+    }
+    
+}
+@media (min-width: 800px) { 
+    .title-logo {
+        font-size: 80px;
+        margin-left: 200px;
+        margin-right: 100px;
+    }
+    .title-logo-2 {
+
+        margin-left: 0px;
+
+
     }
     
 }

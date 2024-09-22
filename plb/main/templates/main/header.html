@@ -1,7 +1,7 @@
             <div class="container-fluid" id="cont-header">
                 <div class="row">
                     <div class="col" id="cont-logo">
-                        <a href="#"><img width="150px" style="margin-left: 2rem;" src="../../static/media/logoplb.png" alt=""></a>
+                        <a href="#" style="visibility: hidden;" id="logo-header"><img width="150px" style="margin-left: 2rem;" src="../../static/media/logoplb.png" alt=""></a>
                     </div>
                     <div class="col-8 d-none d-xl-flex justify-content-end top-menu">
                         <ul style="display: inline-flex;">
@@ -12,3 +12,14 @@
                         <button id="btmenu" type="button" style="float: inline-end;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu" class="btn btn-primary">Menu</button>
                     </div>
                 </div>
+                <script>
+                    var logo = document.getElementById('logo-header');
+                    window.addEventListener('scroll', function () {
+                      if (window.scrollY > 30) {
+                        logo.setAttribute("style", "visibility: visible;");
+                      }
+                      else {
+                        logo.setAttribute("style", "visibility: hidden;");
+                      }
+                    });
+                  </script>
