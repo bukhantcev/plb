@@ -118,8 +118,8 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_URL = '/static/'
+STATIC_ROOT = 'statics'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -127,8 +127,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [
-    BASE_DIR /"config"/ "static",
+    BASE_DIR / "static",
+
 ]
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
 LOGIN_REDIRECT_URL =  '/'
 LOGOUT_REDIRECT_URL =  '/'

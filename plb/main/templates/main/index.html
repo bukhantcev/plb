@@ -19,7 +19,7 @@
     $( "#title-logo-2" ).fadeIn(4000);
     setTimeout(function(){
   $('#tm2').trigger('click');
-}, 6000);
+}, 4000);
 
 
 });
@@ -33,7 +33,9 @@
 
     <div class="row">
       {% for group in groups %}
-      <div class="col d-block justify-content-center group-{{ group.id }}">
+      {% load static %}
+      <div class="col d-block justify-content-center group-{{ group.id }}" style="background-image: url('{{group.bg_image }}');">
+        
         <h1 class="title title-group">{{ group.name }}:</h1>
         {% for usluga in uslugi %}
         {% if usluga.group.name == group.name %}
