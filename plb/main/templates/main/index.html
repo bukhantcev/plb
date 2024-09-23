@@ -39,7 +39,12 @@
         <h1 class="title title-group">{{ group.name }}:</h1>
         {% for usluga in uslugi %}
         {% if usluga.group.name == group.name %}
-        <button type="button" class="btn btn-primary w-100" style="margin-bottom: 10px;">{{ usluga.name }}</button>
+      
+        <form action="" method="get">
+        
+        <li><button type="button" data-bs-toggle="modal" data-bs-target="#modaluslugi-{{ usluga.id }}" class="btn btn-primary w-100" style="margin-bottom: 10px;">{{ usluga.name }}</button></li>
+        {% include "main/modal-uslugi.html" %}
+      </form>
         {% endif %}
         {% endfor %}
 
@@ -163,7 +168,9 @@
 <div class="sl-r"></div>
 <main id="main-next" class="main">
   <div class="container-fluid">
-    
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Launch demo modal
+    </button>
   </div>
 
 </main>

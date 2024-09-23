@@ -12,7 +12,7 @@ def welcome(request):
     return render(request, 'main/welcome.html')
 
 def home(request):
-    print('')
+    print(request.POST)
 
     context = {
         'uslugi': Uslugi.objects.order_by('id'),

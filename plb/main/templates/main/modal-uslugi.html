@@ -1,0 +1,63 @@
+<!-- Modal -->
+
+<div class="modal fade" id="modaluslugi-{{ usluga.id }}" tabindex="-1" aria-labelledby="modaluslugititl"
+  aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="header modal-header-wrap" style="padding: 10px; background-image: url('{{media}}/{{usluga.bg_image}}');">
+
+
+        <div class="row">
+          <div class="col d-flex d-md-none justify-content-end">
+            <button type="button" class="btn btn-primary" style="float: inline-end;" data-bs-dismiss="modal"
+            aria-label="Close">X</button>
+          </div>
+          <div class="col-12 col-md-8 offset-md-2 d-flex justify-content-center " >
+            <h1 class="modal-title title title-uslugi" id="modaluslugititle">{{ usluga.name }}</h>
+          </div>
+
+          <div class="col">
+            <button type="button" class="btn btn-primary d-none d-md-flex" style="float: inline-end;" data-bs-dismiss="modal"
+            aria-label="Close">Возврат</button>
+
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col d-flex justify-content-center">
+            <button type="button" class="btn btn-primary" style="float: inline-end;" data-bs-dismiss="modal"
+          aria-label="Close">Записаться на процедуру</button>
+          </div>
+        </div>
+
+
+
+
+
+
+        
+          
+          
+
+      </div>
+      <div class="modal-body main modal-body-uslugi" style="width: 100%; min-height: 600px;">
+        <div class="row modal-body-row"
+          style="background-image: url('{{media}}/{{usluga.bg_image}}'); min-height: 600px;">
+          <div class="col">
+            <h1 class="title title-uslugi">Описание:</h1><br>
+            <p class="text-sections text-sections-modal-uslugi">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptatibus tenetur
+              cupiditate corporis rem, nemo eveniet? Eaque ipsam necessitatibus ad nam officia id soluta inventore
+              dolores unde sint quas perferendis voluptatibus itaque, in blanditiis molestias non. Iure dicta quos,
+              laboriosam corporis, cumq
+       
+            </p>
+          </div>
+          <div class="col">
+            <h1 class="title title-uslugi">Стоимость:</h1>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

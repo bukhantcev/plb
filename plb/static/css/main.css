@@ -4,6 +4,7 @@
     --btn-base: #8e7dd9;
     --btn-base-transperency: #8e7dd97b;
     --main-color: #ffffff;
+    --dark: #4c39a2;
 }
 
 
@@ -59,7 +60,7 @@ main.main {
     flex: 1 1 auto;
     position: relative;
     min-height: 800px;
-    scroll-margin-top: 60px;
+    scroll-margin-top: 80px;
 
 }
 .main {
@@ -97,6 +98,10 @@ footer.footer {
     font-family: Roboto-Italic;
     color: var(--btn-hover);
    
+}
+
+.text-sections-modal-uslugi {
+    margin-top: 20px;
 }
 .title {
     margin-top: 2rem;
@@ -157,6 +162,7 @@ footer.footer {
     border-style: solid;
 
 }
+
 
 .btn-primary:hover {
     color: #fff;
@@ -292,9 +298,7 @@ ul >* {
     
 
 }
-.Инъекционная косметология{
-    display: none;
-}
+
 
 .uslugi {
     background-color: #efe9e491;;
@@ -316,6 +320,16 @@ ul >* {
 /* MAIN */
 
 
+
+/* MODAL USLUGI*/
+
+.modal-body-row {
+    background-repeat: no-repeat; 
+    background-size: 100%;
+}
+.modal-header-wrap {
+    background-size: 0%;
+}
 
 
 /*OFFCANVAS*/
@@ -428,10 +442,22 @@ ul >* {
 
     
 }
-@media (max-width: 575px) { 
+@media (max-width: 645px) { 
   .title-uslugi {
     font-size: 40px;
   }
+  .modal-body-row {
+    background-size: 0%;
+}
+    .modal-header-wrap {
+        background-size: 100%;
+    }
+    .title-uslugi {
+
+        text-shadow: 8px 8px 14px var(--dark);
+        margin-bottom: 50px;
+    
+    }
   
 }
 @media (max-width: 990px) { 
