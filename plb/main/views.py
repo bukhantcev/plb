@@ -17,6 +17,7 @@ def home(request):
     context = {
         'uslugi': Uslugi.objects.order_by('id'),
         'groups': Uslugi_groups.objects.order_by('id'),
+        'media': 'static/media'
                }
 
 

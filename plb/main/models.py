@@ -15,7 +15,7 @@ import os
 class Uslugi(models.Model):
     name = models.CharField(max_length=30, verbose_name='Название процедуры')
     group = models.ForeignKey(to="Uslugi_groups", on_delete=models.CASCADE, verbose_name="Группы процедур")
-    bg_image = models.ImageField(upload_to="static/user_img/bg_uslugi", verbose_name="Фоновая картинка", blank=True)
+    bg_image = models.ImageField(verbose_name="Фоновая картинка", blank=True)
 
 
 
@@ -32,7 +32,7 @@ class Uslugi(models.Model):
 
 class Uslugi_groups(models.Model):
     name = models.CharField(max_length=30, verbose_name="Название группы процедур", default='')
-    bg_image = models.ImageField(upload_to="static/user_img/bg_groups", verbose_name="Фоновая картинка",
+    bg_image = models.ImageField(verbose_name="Фоновая картинка",
                                  blank=True)
     def __str__(self):
         return self.name
