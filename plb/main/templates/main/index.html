@@ -10,48 +10,53 @@
       <img width="100%" style="padding: 20px; padding-bottom: 0px;" src="../../static/media/logoplb.png" alt="">
       <h1 class="title-logo" id="title-logo" style="display: none;">Косметология...</h1>
       <h1 class="title-logo title-logo-2" id="title-logo-2" style="display: none;">...ради Красоты</h1>
-  </div>
+    </div>
   </div>
 </main>
 <script>
   window.addEventListener('load', () => {
-    $( "#title-logo" ).fadeIn(2000);
-    $( "#title-logo-2" ).fadeIn(4000);
-    setTimeout(function(){
-  $('#tm2').trigger('click');
-}, 5000);
+    $("#title-logo").fadeIn(2000);
+    $("#title-logo-2").fadeIn(4000);
+    const tm = setTimeout(function () {
+      $('#tm2').trigger('click');
+    }, 5000);
+    window.addEventListener('scroll', () => {
+      clearTimeout(tm);
+    })
 
 
-});
+  });
 
 </script>
 <!--------------------------------------------USLUGI------------------------>
 <div class="sl-r"></div>
 <main id="main-uslugi" class="main">
-  
+
   <div class="container-fluid base" id="base">
 
     <div class="row">
       {% for group in groups %}
       {% load static %}
-      <div class="col d-block justify-content-center col-group" id="col-group" style="background-image: url('{{media}}/{{group.bg_image}}');">
-        
+      <div class="col d-block justify-content-center col-group" id="col-group"
+        style="background-image: url('{{media}}/{{group.bg_image}}');">
+
         <h1 class="title title-group">{{ group.name }}:</h1>
         {% for usluga in uslugi %}
         {% if usluga.group.name == group.name %}
-      
+
         <form action="" method="get">
-        
-        <li><button type="button" data-bs-toggle="modal" data-bs-target="#modaluslugi-{{ usluga.id }}" class="btn btn-primary w-100" style="margin-bottom: 10px;">{{ usluga.name }}</button></li>
-        {% include "main/modal-uslugi.html" %}
-      </form>
+
+          <li class="uslugi-li"><button type="button" data-bs-toggle="modal" data-bs-target="#modaluslugi-{{ usluga.id }}"
+              class="btn btn-primary w-100" style="margin-bottom: 10px;">{{ usluga.name }}</button></li>
+          {% include "main/modal-uslugi.html" %}
+        </form>
         {% endif %}
         {% endfor %}
 
       </div>
       {% endfor %}
     </div>
-    
+
   </div>
 </main>
 <!--------------------------------------------USLUGI------------------------>
@@ -84,7 +89,7 @@
           hspace="5">
 
       </div>
-      <div class="col col-sm-5 offset-sm-2 d-none d-lg-block"" style=" margin-bottom: 23px;">
+      <div class="col col-sm-5 offset-sm-2 d-none d-lg-block" style=" margin-bottom: 23px;">
         <div class="container-fluid about justify-content-center">
 
           <h1 class="title"><img class="icon_base" src="static/media/icon_base.png"
@@ -93,11 +98,14 @@
           <p class="text-sections" id="text-about" style="margin-right: 50px;">{% include "main/text_about.html" %}</p>
           <button type="button" style="float: inline-end; margin-top: 50px; margin-right: 100px; z-index: 999;"
             class="btn btn-primary">Записаться на консультацию</button>
-          <button type="button" id="btn-sticky"
-            style="position: fixed; right: 5%; top: 15%; display: none; z-index: 998;"
-            class="btn btn-primary btn-sticky">Записаться на консультацию</button>
+
 
         </div>
+
+      </div>
+      <div class="col offset-11">
+        <button type="button" id="btn-sticky" style="position: fixed; right: 5%; top: 10%; display: none;"
+          class="btn btn-primary btn-sticky">Записаться на консультацию</button>
       </div>
 
     </div>
@@ -153,13 +161,28 @@
 
 <script>
   var btnstk = document.getElementById('btn-sticky');
+
   window.addEventListener('scroll', function () {
-    if (window.scrollY > 650) {
-      btnstk.setAttribute("style", "position: fixed; right: 5%; top: 10%; opacity: 1; z-index: 999;");
-    }
-    else {
-      btnstk.setAttribute("style", "position: fixed; right: 5%; top: 10%; opacity: 0; z-index: 999; display: none");
-    }
+
+    btnstk.setAttribute("style", "position: fixed; right: 5%; top: 10%;");
+    btnstk.textContent = "Записаться на консультацию"
+
+
+
+
+    var timer = null;
+    window.addEventListener('scroll', function () {
+      if (timer !== null) {
+        clearTimeout(timer);
+      }
+      timer = setTimeout(function () {
+        btnstk.setAttribute("style", "position: fixed; right: 1%; top: 10%;");
+        btnstk.textContent = 'Запись';
+
+      }, 1000);
+    }, false);
+
+
   });
 </script>
 </main>
@@ -168,9 +191,7 @@
 <div class="sl-r"></div>
 <main id="main-next" class="main">
   <div class="container-fluid">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Launch demo modal
-    </button>
+
   </div>
 
 </main>

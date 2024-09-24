@@ -204,6 +204,13 @@ footer.footer {
     text-decoration: none;
     color: #fff;
 }
+.btn-sticky {
+    z-index: 999;
+}
+
+.uslugi-li {
+    list-style: none;
+}
 
  /* BUTTONS */
 
