@@ -3,8 +3,6 @@ from lib2to3.pgen2.tokenize import group
 
 from django.shortcuts import render
 from .models import Uslugi, Uslugi_groups, Sertifikate
-# from .photoshop import Img_save
-# Create your views here.
 
 
 def welcome(request):
