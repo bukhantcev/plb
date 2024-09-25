@@ -1,10 +1,13 @@
             <div class="container-fluid" id="cont-header">
                 <div class="row">
                     <div class="col" id="cont-logo">
-                        <a href="#" style="visibility: hidden;" id="logo-header"><img width="150px" style="margin-left: 2rem;" src="../../static/media/logoplb.png" alt=""></a>
+                        <a href="#" style="visibility: hidden;" id="logo-header"><img width="200px" style="margin-left: 2rem;" src="../../static/media/logoplb.png" alt=""></a>
                     </div>
-                    <div class="col-2 d-none d-xl-flex justify-content-end" id="tg" style="margin-top: 20px;  visibility: hidden;">
-                      <a href=""><i class="fa-solid fa-mobile-screen-button fa-2xl" style="color: #ffffff;"></i> <p class="text-sections text-sections-phone">+79265730771</p></a>
+                    <div class="col d-none d-xl-flex justify-content-end" id="phone_icon" style="margin-top: 20px;  visibility: hidden;">
+                      <a href="#"><i class="fa-solid fa-mobile-screen-button fa-2xl" style="color: #ffffff;"></i></a>
+                    </div>
+                    <div class="col d-none d-xxl-flex justify-content-end" id="phone_number" style="margin-top: 14px;  visibility: hidden;">
+                      <a href="#" style="text-decoration: none;"><p class="text-sections text-sections-phone">+79265730771</p></a>
                     </div>
                     <div class="col-8 d-none d-xl-flex justify-content-end top-menu">
                         <ul style="display: inline-flex;">
@@ -17,15 +20,18 @@
                 </div>
                 <script>
                     var logo = document.getElementById('logo-header');
-                    var tg = document.getElementById('tg');
+                    var phone_icon = document.getElementById('phone_icon');
+                    var phone_number = document.getElementById('phone_number')
                     window.addEventListener('scroll', function () {
                       if (window.scrollY > 30) {
                         logo.setAttribute("style", "visibility: visible;");
-                        tg.setAttribute("style", "visibility: visible; margin-top: 20px;");
+                        phone_icon.setAttribute("style", "visibility: visible; margin-top: 20px;");
+                        phone_number.setAttribute("style", "visibility: visible; margin-top: 14px;");
                       }
                       else {
                         logo.setAttribute("style", "visibility: hidden;");
-                        tg.setAttribute("style", "visibility: hidden; margin-top: 20px;");
+                        phone_icon.setAttribute("style", "visibility: hidden; margin-top: 20px;");
+                        phone_number.setAttribute("style", "visibility: hidden; margin-top: 14px;");
                       }
                     });
                   </script>

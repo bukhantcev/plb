@@ -36,7 +36,7 @@ class Uslugi(models.Model):
 
 class Uslugi_groups(models.Model):
     name = models.CharField(max_length=50, verbose_name="Название группы процедур", default='')
-    bg_image = models.ImageField(upload_to='group_bg', verbose_name="Фоновая картинка",
+    bg_image = ImageMaskField(upload_to='group_bg', verbose_name="Фоновая картинка",
                                  blank=True)
     def __str__(self):
         return self.name

@@ -55,14 +55,14 @@
               <div class="carousel-inner">
                 {% for ser in sert %}
                 {% if forloop.counter0 == 0 %}
-                <div class="carousel-item active" data-bs-interval="20000">
-                  <img src="{{media}}/{{ser.file}}" class="d-block w-100" alt="...">
+                <div class="carousel-item active" style="left: 25%;" data-bs-interval="20000">
+                  <img src="{{media}}/{{ser.file}}" class="d-block" style="width: 50%;" alt="...">
 
                 
                 </div>
                 {% else %}
-                <div class="carousel-item" data-bs-interval="20000">
-                  <img src="{{media}}/{{ser.file}}" class="d-block w-100" alt="...">
+                <div class="carousel-item" style="left: 25%;" data-bs-interval="20000">
+                  <img src="{{media}}/{{ser.file}}" class="d-block" style="width: 50%;" alt="...">
         
                 </div>
                 {% endif %}

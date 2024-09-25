@@ -103,6 +103,7 @@ footer.footer {
 .text-sections-modal-uslugi {
     margin-top: 20px;
     text-align: start;
+    padding: 10px !important;
 }
 .title {
     margin-top: 2rem;
@@ -477,18 +478,14 @@ ul >* {
 @media (max-width: 645px) { 
   .title-uslugi {
     font-size: 40px;
+    margin-top: 0px;    text-shadow: 8px 8px 14px var(--dark);
+    margin-bottom: 0px;
   }
   .modal-body-row {
     background-size: 0%;
 }
     .modal-header-wrap {
         background-size: 100%;
-    }
-    .title-uslugi {
-
-        text-shadow: 8px 8px 14px var(--dark);
-        margin-bottom: 50px;
-    
     }
   
 }

@@ -13,7 +13,7 @@ class MaskFieldFile(ImageFieldFile):
     def save(self, name, content, save=True):
         content.file.seek(0)
         image = Image.open(content.file)
-        image.resize([400, 300])
+        image.resize([1440, 740])
         image_bytes = io.BytesIO()
         mask = Image.open('static/media/mask/mask.png').resize([image.size[0], image.size[1]]).convert("L")
         image.putalpha(mask)
