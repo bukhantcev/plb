@@ -3,8 +3,8 @@
                     <div class="col" id="cont-logo">
                         <a href="#" style="visibility: hidden;" id="logo-header"><img width="150px" style="margin-left: 2rem;" src="../../static/media/logoplb.png" alt=""></a>
                     </div>
-                    <div class="col d-flex justify-content-end" id="tg" style="margin-top: 27px;  visibility: hidden;">
-                      <i class="fa-brands fa-telegram fa-xl" style="color: #fafcff;"></i>
+                    <div class="col-2 d-none d-xl-flex justify-content-end" id="tg" style="margin-top: 20px;  visibility: hidden;">
+                      <a href=""><i class="fa-solid fa-mobile-screen-button fa-2xl" style="color: #ffffff;"></i> <p class="text-sections text-sections-phone">+79265730771</p></a>
                     </div>
                     <div class="col-8 d-none d-xl-flex justify-content-end top-menu">
                         <ul style="display: inline-flex;">
@@ -21,11 +21,11 @@
                     window.addEventListener('scroll', function () {
                       if (window.scrollY > 30) {
                         logo.setAttribute("style", "visibility: visible;");
-                        tg.setAttribute("style", "visibility: visible; margin-top: 27px;");
+                        tg.setAttribute("style", "visibility: visible; margin-top: 20px;");
                       }
                       else {
                         logo.setAttribute("style", "visibility: hidden;");
-                        tg.setAttribute("style", "visibility: hidden; margin-top: 27px;");
+                        tg.setAttribute("style", "visibility: hidden; margin-top: 20px;");
                       }
                     });
                   </script>

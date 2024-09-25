@@ -102,6 +102,7 @@ footer.footer {
 
 .text-sections-modal-uslugi {
     margin-top: 20px;
+    text-align: start;
 }
 .title {
     margin-top: 2rem;
@@ -136,6 +137,18 @@ footer.footer {
     margin-bottom: 50px;
     margin-top: 0px;
 
+}
+.title-control {
+    color: var(--btn-hover);
+    text-shadow: 8px 8px 14px var(--main-color);
+}
+.text-sections-modal-uslugi-price {
+    color: #fff;
+    background-color: var(--btn-base-transperency);
+}
+
+.text-sections-phone {
+    font-size: 20px;
 }
 
 /* BASE */
@@ -192,6 +205,12 @@ footer.footer {
     border-color: #fff;
 }
 
+.contacts-link {
+    background-color: ø#8e7dd93e;
+    border-radius: 100%;
+    background-size: 20%;
+}
+
 
 .btn-menu {
     background-color: var(--header-color);
@@ -207,6 +226,12 @@ footer.footer {
 .btn-sticky {
     z-index: 999;
 }
+
+.fa-brends {
+    box-shadow: 0px 24px 10px -14px rgba(158, 158, 158, 1);
+}
+
+
 
 .uslugi-li {
     list-style: none;

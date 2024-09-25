@@ -1,0 +1,87 @@
+<!-- Modal -->
+
+<div class="modal fade" id="modalsertificate" tabindex="-1" aria-labelledby="modaluslugititle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="header modal-header-wrap" style="padding: 10px; background-image: url('{{media}}/{{usluga.bg_image}}');">
+
+
+        <div class="row">
+          <div class="col d-flex d-md-none justify-content-end">
+            <button type="button" class="btn btn-primary" style="float: inline-end;" data-bs-dismiss="modal"
+            aria-label="Close">X</button>
+          </div>
+          <div class="col-12 col-md-8 offset-md-2 d-flex justify-content-center " >
+            <h1 class="modal-title title title-uslugi" id="modaluslugititle">Дипломы и сертификаты</h>
+          </div>
+
+          <div class="col">
+            <button type="button" class="btn btn-primary d-none d-md-flex" style="float: inline-end;" data-bs-dismiss="modal"
+            aria-label="Close">Возврат</button>
+
+
+          </div>
+        </div>
+        <div class="row">
+        </div>
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="modal-body main modal-body-uslugi" style="width: 100%; min-height: 600px;">
+        <div class="row modal-body-row"
+          style="min-height: 600px;">
+          <div class="col">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                {% for ser in sert %}
+                {% if forloop.counter0 == 0 %}
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{forloop.counter0}}" class="active" aria-current="true" aria-label="Slide {{forloop.counter0}}"></button>
+                {% else %}
+
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{forloop.counter0}}" aria-label="Slide {{forloop.counter}}"></button>
+                {% endif %}
+
+                {% endfor %}
+              </div>
+              <div class="carousel-inner">
+                {% for ser in sert %}
+                {% if forloop.counter0 == 0 %}
+                <div class="carousel-item active" data-bs-interval="20000">
+                  <img src="{{media}}/{{ser.file}}" class="d-block w-100" alt="...">
+
+                
+                </div>
+                {% else %}
+                <div class="carousel-item" data-bs-interval="20000">
+                  <img src="{{media}}/{{ser.file}}" class="d-block w-100" alt="...">
+        
+                </div>
+                {% endif %}
+                {% endfor %}
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <h1 class="title title-control">&lt;&lt;</h1>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+               <h1 class="title title-control">&gt;&gt;</h1>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

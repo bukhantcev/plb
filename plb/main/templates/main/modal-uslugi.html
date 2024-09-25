@@ -45,15 +45,15 @@
           style="background-image: url('{{media}}/{{usluga.bg_image}}'); min-height: 600px;">
           <div class="col">
             <h1 class="title title-uslugi">Описание:</h1><br>
-            <p class="text-sections text-sections-modal-uslugi">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptatibus tenetur
-              cupiditate corporis rem, nemo eveniet? Eaque ipsam necessitatibus ad nam officia id soluta inventore
-              dolores unde sint quas perferendis voluptatibus itaque, in blanditiis molestias non. Iure dicta quos,
-              laboriosam corporis, cumq
-       
+            <p class="text-sections text-sections-modal-uslugi">
+              {{ usluga.desc }}
             </p>
           </div>
           <div class="col">
-            <h1 class="title title-uslugi">Стоимость:</h1>
+            <h1 class="title title-uslugi">Стоимость:</h1><br>
+            <p class="text-sections text-sections-modal-uslugi text-sections-modal-uslugi-price">
+              {{ usluga.price }}
+            </p>
           </div>
         </div>
       </div>
