@@ -152,6 +152,12 @@ footer.footer {
     font-size: 20px;
 }
 
+
+.text-sections-zapis {
+    background-color: #ffffff00;
+    box-shadow: none;
+}
+
 /* BASE */
 
 
@@ -363,6 +369,17 @@ ul >* {
 .modal-header-wrap {
     background-size: 0%;
 }
+
+
+/* MODAL ZAPIS*/
+
+
+.input-zapis {
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+
 
 
 /*OFFCANVAS*/

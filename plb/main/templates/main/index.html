@@ -104,8 +104,10 @@
 
       </div>
       <div class="col offset-11">
-        <button type="button" id="btn-sticky" style="position: fixed; right: 5%; top: 10%; display: none;"
+        <button type="button" id="btn-sticky" data-bs-toggle="modal" data-bs-target="#modalzapis" style="position: fixed; right: 5%; top: 10%; display: none;"
           class="btn btn-primary btn-sticky">Записаться на консультацию</button>
+          {% include 'main/modal-zapis.html' %}
+
       </div>
 
     </div>

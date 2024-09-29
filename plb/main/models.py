@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db import models
 from uuid import uuid4
 import os
@@ -65,6 +67,43 @@ class Sertifikate(models.Model):
     class Meta:
         verbose_name = 'Сертификат'
         verbose_name_plural = 'Сертификаты'
+
+
+
+class Klients(models.Model):
+     name = models.CharField(max_length=50, verbose_name='Имя клиента', default='')
+     phone = models.CharField(max_length=50, verbose_name='Номер телефона клиента', default='')
+
+     def __str__(self):
+         return self.name
+
+     class Meta:
+         verbose_name = 'Клиент'
+         verbose_name_plural = 'Клиенты'
+
+
+
+
+
+
+class Zapis(models.Model):
+
+
+    create_date = models.DateField(verbose_name="Дата создания записи", auto_now_add=True)
+    client_name = models.CharField(max_length=50, verbose_name='Имя клиента')
+    phone = models.CharField(max_length=50, verbose_name='Номер телефона', default='')
+    procedura_name = models.ForeignKey(to=Uslugi, on_delete=models.CASCADE, verbose_name='Название процедуры', default=1)
+    date_proceduri = models.DateTimeField(verbose_name='Дата и время процедуры', default=datetime.now())
+    zapis_status = models.CharField(max_length=50, verbose_name="Статус записи", default='Ждет подтверждения')
+    price = models.CharField(max_length=50, verbose_name="Стоимость", default='', blank=True)
+    descr = models.TextField(max_length=300, verbose_name='Описание', default='', blank=True)
+
+
+
+
+    class Meta:
+        verbose_name = 'Запись'
+        verbose_name_plural = 'Записи'
 
 
 
