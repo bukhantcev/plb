@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'config',
     'main',
     'accounts',
+    "phonenumber_field",
 ]
 
 MIDDLEWARE = [

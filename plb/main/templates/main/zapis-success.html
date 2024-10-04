@@ -1,0 +1,46 @@
+{% extends 'config/layout-blank.html' %}
+
+{% block main %}
+
+<div class="main" style="min-height: 800px;">
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col d-flex justify-content-center">
+      <img width="400px" style="margin-left: 2rem;" src="../../static/media/logoplb.png" alt="">
+    </div>
+  </div>
+
+  <div class="row">
+    
+    <div class="col">
+      <h1 class="title" style="margin-top: 20px; padding: 50px;">Я обязательно свяжусь с Вами в ближайшее время!</h1>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col d-flex justify-content-center">
+      <button class="btn btn-primary" onclick="MainRedirect()">Вернуться на главную страницу</button>
+      <button class="btn btn-primary">Перейти в личный кабинет</button>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+
+
+<script>
+
+    function MainRedirect() {
+        location = "/";
+    }
+
+
+
+;
+</script>
+
+
+{% endblock %}

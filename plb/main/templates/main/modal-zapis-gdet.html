@@ -1,0 +1,69 @@
+<!-- Modal -->
+
+<div class="modal fade" id="modalZapis-{{ zapis.id }}" tabindex="-1" aria-labelledby="modalzapistitl"
+  aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="header modal-header-wrap" style="padding: 10px;">
+
+
+        <div class="row">
+          <div class="col d-flex d-md-none justify-content-end">
+            <button type="button" class="btn btn-primary" style="float: inline-end;" data-bs-dismiss="modal"
+            aria-label="Close">X</button>
+          </div>
+          <div class="col-12 col-md-8 offset-md-2 d-flex justify-content-center ">
+            <h1 class="title title-uslugi" id="modaluslugititle">{{ zapis.client_name }}</h>
+          </div>
+
+          <div class="col">
+            <button type="button" class="btn btn-primary d-none d-md-flex" style="float: inline-end;" data-bs-dismiss="modal"
+            aria-label="Close">Возврат</button>
+
+
+          </div>
+        </div>
+
+
+
+
+
+
+        
+          
+          
+
+      </div>
+      <div class="modal-body main modal-body-uslugi" style="width: 100%; min-height: 740px;">
+        <div class="row modal-body-row"
+          style=" min-height: 740px;">
+          <div class="col-8 offset-2">
+            <form action="" method="post">
+              {% csrf_token %}
+              <p class="text-sections">Номер телефона: {{ zapis.phone }}</p>
+              
+                <select name="usluga" class="form-select form-select-castom" aria-label="Default select example">
+                  <option selected><p class="text-sections">Выбери процедуру:</p></option>
+                  {% for usluga in uslugi %}
+                  <option value="uslugaId-{{ forloop.counter }}">{{ usluga.name }}</option>
+                  {% endfor %}
+                </select>
+                
+            
+              <p class="text-sections">Выбери дату: <input name="date" class="form-edit" type="date"></p>
+              <p class="text-sections">Выбери время: <input name="time" id="time" class="form-edit" type="time"></p>
+              <p class="text-sections">Стоимость процедуры: <input name="price" class="form-edit form-edit-price" type="text" placeholder="{{ zapis.price }}"></p>
+              <p class="text-sections">Рекомендации:</p>
+              <textarea name="recomendacii"  placeholder="{{zapis.descr}}" id="txt_recom" class="form-edit form-edit-price form-edit-price-txt", rows="10", cols="10" style="width: 100%;"></textarea>
+              <button class="btn btn-primary" type="submit" name="editBtn" value="{{ zapis.id }}">Подтвердить запись</button>
+
+
+
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

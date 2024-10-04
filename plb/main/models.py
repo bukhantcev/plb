@@ -6,6 +6,9 @@ import os
 from .fields import ImageMaskField
 
 
+
+
+
 # def path_and_rename(path):
 #     def wrapper(instance, filename):
 #         ext = filename.split(".")[-1]
@@ -87,16 +90,23 @@ class Klients(models.Model):
 
 
 class Zapis(models.Model):
+    class Status(models.TextChoices):
+        GDET = '1', 'Ждет подтверждения'
+        OK = '2', 'Подтверждено'
+        DELETE = '3', 'Отменено'
 
 
     create_date = models.DateField(verbose_name="Дата создания записи", auto_now_add=True)
     client_name = models.CharField(max_length=50, verbose_name='Имя клиента')
     phone = models.CharField(max_length=50, verbose_name='Номер телефона', default='')
     procedura_name = models.ForeignKey(to=Uslugi, on_delete=models.CASCADE, verbose_name='Название процедуры', default=1)
-    date_proceduri = models.DateTimeField(verbose_name='Дата и время процедуры', default=datetime.now())
-    zapis_status = models.CharField(max_length=50, verbose_name="Статус записи", default='Ждет подтверждения')
+    date_proceduri = models.DateField(verbose_name='Дата и время процедуры', default=datetime.now().date())
+    time_proceduri = models.TimeField(verbose_name='Время записи', default=datetime.now().time())
+    zapis_status = models.CharField(choices=Status.choices, default=Status.GDET, max_length=20)
     price = models.CharField(max_length=50, verbose_name="Стоимость", default='', blank=True)
     descr = models.TextField(max_length=300, verbose_name='Описание', default='', blank=True)
+
+
 
 
 

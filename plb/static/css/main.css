@@ -156,6 +156,60 @@ footer.footer {
 .text-sections-zapis {
     background-color: #ffffff00;
     box-shadow: none;
+    font-family: Caveat-Bold;
+    margin-bottom: 0px;
+}
+
+.text-sections-zapisi {
+    font-size: 20px; 
+    background-color: #ffffff00;
+    box-shadow: none;
+}
+
+
+.errorlist >* {
+    color: red;
+    font-family: Caveat-Bold;
+    font-size: 1.3rem;
+}
+
+
+.form-edit {
+    background-color: #00000000;
+    border: none;
+    box-shadow: none;
+    color: var(--btn-hover);
+}
+
+
+.form-select-castom {
+    width: 100%;
+    border: none;
+    color: var(--btn-hover);
+    font-family: Roboto-Italic;
+    display: inline;
+    font-size: 30px;
+    text-align: center;
+    background-color: #ffffff8b;
+    border-radius: 14px;
+    box-shadow: 0px 24px 10px -14px rgba(158, 158, 158, 1);
+    text-shadow: #6656ac;
+    padding: 4px;
+    margin-bottom: 1rem;
+}
+
+.form-edit-price {
+    border-radius: 10px;
+    border-style: solid;
+    border-color: var(--btn-hover);
+}
+
+.form-edit-price-txt {
+    background-color: #ffffff8b;
+    color: var(--btn-hover);
+    font-family: Roboto-Italic;
+    font-size: 30px;
+    
 }
 
 /* BASE */
@@ -212,6 +266,11 @@ footer.footer {
     border-color: #fff;
 }
 
+.btn-primary-zapisi {
+    width: 100%;
+    font-size: 20px;
+}
+
 .contacts-link {
     background-color: ø#8e7dd93e;
     border-radius: 100%;
@@ -257,6 +316,11 @@ footer.footer {
     border-color: #fff;
     border-width: 1.5px;
     border-style: solid;
+
+}
+
+.headeer-calendar {
+    border-radius: 14px 14px 14px 14px;
 
 }
 
@@ -379,7 +443,15 @@ ul >* {
     margin-bottom: 60px;
 }
 
+/* FORMS */
 
+.form-control-custom {
+    border-radius: 14px;
+    color: var(--btn-hover);
+    font-family: Caveat-Bold;
+    width: 40%;
+    font-size: 1.5rem;
+}
 
 
 /*OFFCANVAS*/
@@ -510,6 +582,13 @@ ul >* {
     .col-uslugi {
         margin-right: 0px;
     }
+    .form-control-custom {
+        border-radius: 14px;
+        color: var(--btn-hover);
+        font-family: Caveat-Bold;
+        width: 100%;
+        font-size: 1.2rem;
+    }
     
 }
 
@@ -531,6 +610,8 @@ ul >* {
 
 
     }
+
+
     
 }
 @media (max-width: 671px) { 

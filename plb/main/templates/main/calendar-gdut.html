@@ -1,0 +1,43 @@
+{% extends 'config/layout-blank.html' %}
+
+{% block main %}
+
+<header class="header" id="header-cal" style="position: fixed; width: 100%; z-index: 999;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-9">
+                <h1 class="title" style="margin-top: 0rem;">Неподтвержденные записи:</h1>
+        </div>
+        <div class="col-3 d-flex justify-content-end" style="height: 20%;">
+            <button class="btn btn-primary" onclick="Gdut()">В календарь</button>
+            <button class="btn btn-primary" onclick="Back()" >На главную</button>
+        </div>
+    </div>
+    </div>
+
+
+</header>
+
+<div class="sl-r-header" style="height: 100px;"></div>
+
+
+<div class="sl-r"></div>
+<main id="main-calendar" class="main">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4 offset-4">
+                {% for zapis in zapisi %}
+                {% if zapis.zapis_status == '1' %}
+                <button class="btn btn-primary btn-primary-zapisi" id="zapis-{{zapis.id}}" data-bs-toggle="modal" data-bs-target="#modalZapis-{{ zapis.id }}" style="margin-top: 2rem;">{{ zapis.create_date }} {{ zapis.client_name }}</button>
+            {% include 'main/modal-zapis-gdet.html' %}
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+
+{% endblock %}

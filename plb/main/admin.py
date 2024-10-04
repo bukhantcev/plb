@@ -19,7 +19,7 @@ class EventAdmin(admin.ModelAdmin):
 
 @admin.register(Zapis)
 class EventAdmin(admin.ModelAdmin):
-    list_display = ( 'create_date', 'client_name', 'phone', 'procedura_name', 'date_proceduri', 'zapis_status', 'price',)
-    list_editable = ('client_name', 'procedura_name', 'date_proceduri', 'zapis_status', 'price',)
+    list_display = ( 'create_date', 'client_name', 'phone', 'procedura_name', 'date_proceduri', 'time_proceduri', 'zapis_status', 'price',)
+    list_editable = ('client_name', 'procedura_name', 'date_proceduri', 'time_proceduri', 'zapis_status', 'price',)
 
 
