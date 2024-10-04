@@ -6,13 +6,15 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col">
-                <h1 class="title" style="margin-top: 0rem;">Календарь</h1>
+                <a href="#" style="text-decoration: none;" onclick="Today()"><h1 class="title" style="margin-top: 0rem;">Календарь</h1></a>
+            </div>
+            <div class="col d-flex justify-content-end" style="height: 20%;">
+                <button class="btn btn-primary" onclick="Gdut()">Ждут подтверждения
+                    {% if status1_quant != 0 %}<span class="badge bg-danger" style="border-radius: 14px;">{{ status1_quant }}</span>{% endif %}
+                </button>
+                <button class="btn btn-primary" onclick="Back()">На главную</button>
+            </div>
         </div>
-        <div class="col d-flex justify-content-end" style="height: 20%;">
-            <button class="btn btn-primary" onclick="Gdut()">Ждут подтверждения</button>
-            <button class="btn btn-primary" onclick="Back()" >На главную</button>
-        </div>
-    </div>
     </div>
 
 
@@ -23,49 +25,74 @@
 
 <div class="sl-r"></div>
 <main id="main-calendar" class="main">
-    <!-------------------MONTH-BUTTON----------->
-    <select name="month-swith" id="month-swith_id" onchange="MonthSwith(this.value)" class="form-select form-select-castom" aria-label="Default select example">
-        {% for month in months %}
-        
-        {% if forloop.counter == 1 %}
-        <option value="{{month.month_index}}" selected><p class="text-sections">{{month.month_name}}</p></option>
-        {% else %}
-        <option value="{{month.month_index}}"><p class="text-sections">{{month.month_name}}</p></option>
-        
-        {% endif %}
-        {% endfor %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col d-flex justify-content-center" style="margin-top: 2rem;">
+                <!-------------------MONTH-BUTTON----------->
+                <select name="month-swith" id="month-swith_id" onchange="MonthSwith(this.value)"
+                    class="form-select form-select-castom form-select-castom-small btn-primary"
+                    aria-label="Default select example">
+                    {% for month in months %}
+
+                    {% if month.month_index == current_month %}
+                    <option value="{{month.month_index}}" selected>
+                        <p class="text-sections">{{month.month_name}}</p>
+                    </option>
+                    {% else %}
+                    <option value="{{month.month_index}}">
+                        <p class="text-sections">{{month.month_name}}</p>
+                    </option>
+
+                    {% endif %}
+                    {% endfor %}
 
 
-      </select>
-       <!-------------------MONTH-BUTTON----------->
+                </select>
+                <!-------------------MONTH-BUTTON----------->
 
 
-          <!-------------------YEAR-BUTTON----------->
-    <select name="year-swith" id="year-swith_id" onchange="YearSwith(this.value)" class="form-select form-select-castom" aria-label="Default select example">
-        {% for year in years %}
+                <!-------------------YEAR-BUTTON----------->
+                <select name="year-swith" id="year-swith_id" onchange="YearSwith(this.value)"
+                    class="form-select form-select-castom form-select-castom-small btn-primary"
+                    aria-label="Default select example">
+                    {% for year in years %}
 
-        {% if year == current_year %}
-        <option value="{{ year }}" selected><p class="text-sections">{{ year }}</p></option>
-        {% else %}
-        <option value="{{year}}"><p class="text-sections">{{year}}</p></option>
-        
-        {% endif %}
-        {% endfor %}
+                    {% if year == current_year %}
+                    <option value="{{ year }}" selected>
+                        <p class="text-sections">{{ year }}</p>
+                    </option>
+                    {% else %}
+                    <option value="{{year}}">
+                        <p class="text-sections">{{year}}</p>
+                    </option>
+
+                    {% endif %}
+                    {% endfor %}
 
 
-      </select>
-       <!-------------------YEAR-BUTTON----------->
-      <button id="customCalbtn" type="submit" style="display: none;"></button>
+                </select>
+                <!-------------------YEAR-BUTTON----------->
+            </div>
+        </div>
+    </div>
+
+    <button id="customCalbtn" type="submit" style="display: none;"></button>
     </form>
-      <a href="#" id="swithMonthLink" style="display: none;" >sdvdsfgdsffg</a>
+    <a href="#" id="swithMonthLink" style="display: none;">sdvdsfgdsffg</a>
     <div class="container-fluid d-flex justify-content-center">
         <div class="row">
             {% for day in fill_cal %}
-            <div class="col-2" style="margin-bottom: 2rem;">
+            <div class="col-2" id="day-{{day.date}}" style="margin-bottom: 2rem;">
                 <div class="card" style="height: 20rem; margin-top: 2rem;">
-                    <div class="header card-headder headeer-calendar">
-                       <p class="text-sections text-sections-zapisi">{{day.date}}</p> 
+                    {% if day.date == today.date %}
+                    <div class="header card-headder headeer-calendar headeer-calendar-today" id="today">
+                        <p class="text-sections text-sections-zapisi">{{day.date}}</p>
                     </div>
+                    {% else %}
+                    <div class="header card-headder headeer-calendar">
+                        <p class="text-sections text-sections-zapisi">{{day.date}}</p>
+                    </div>
+                    {% endif %}
                     <div class="main card-body main-calendar">
                         {% for zapis in zapisi %}
                         {% if day.date == zapis.date_proceduri %}
@@ -87,32 +114,46 @@
 
 
 <script>
-    function Back(){
-      location = '/';
+    function Back() {
+        location = '/';
     }
-  </script>
+</script>
 <script>
-    function Gdut(){
-      location = 'calendar/jdut-podtvergdeniy';
+    function Gdut() {
+        location = 'calendar/jdut-podtvergdeniy';
     }
-  </script>
+</script>
 
 <script>
-    function MonthSwith(value){
-     var link =  document.getElementById('swithMonthLink');
-     var year = document.getElementById('year-swith_id').value
-     link.setAttribute('href', `?monthSwitch=${value}&yearSwitch=${year}`);
-     link.click();
+    function MonthSwith(value) {
+        var link = document.getElementById('swithMonthLink');
+        var year = document.getElementById('year-swith_id').value
+        link.setAttribute('href', `?monthSwitch=${value}&yearSwitch=${year}`);
+        link.click();
     }
 </script>
 <script>
-    function YearSwith(value){
-     var link =  document.getElementById('swithMonthLink');
-     var month = document.getElementById('month-swith_id').value
-     link.setAttribute('href', `?monthSwitch=${month}&yearSwitch=${value}`);
-     link.click();
+    function YearSwith(value) {
+        var link = document.getElementById('swithMonthLink');
+        var month = document.getElementById('month-swith_id').value
+        link.setAttribute('href', `?monthSwitch=${month}&yearSwitch=${value}`);
+        link.click();
     }
 </script>
+<script>
+    function Today(){
+        location = '/calendar'
+    }
+</script>
+
+<script>
+    window.addEventListener('load', () => {
+
+        document.getElementById("today").scrollIntoView();
+
+  });
+</script>
+
 
 
 {% endblock %}

@@ -4,9 +4,7 @@ from datetime import datetime
 
 def fill_cal(year=datetime.now().year, month= datetime.now().month):
     list_month = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
-    list_month = list_month[month-1:] + list_month[:month-1]
     list_month_index = [1,2,3,4,5,6,7,8,9,10,11,12]
-    list_month_index = list_month_index[month - 1:] + list_month_index[:month - 1]
     mont_result = []
     for i in range(len(list_month_index)):
         mont_result.append({'month_index': list_month_index[i], 'month_name': list_month[i]})

@@ -80,17 +80,24 @@ def zapis(request):
 
 
 def calendar_view(request):
-    print(request.GET)
+
 
 
     zapisi = Zapis.objects.all()
+    try:
+        status1_quant = len(zapisi.filter(zapis_status='1'))
+    except:
+        status1_quant = 0
 
     context = {
         'fill_cal': fill_cal()['date_list'],
         'months': fill_cal()['month_list'],
         'years': fill_cal()['year_list'],
         'zapisi': zapisi,
-        'current_year': fill_cal()['current_year']
+        'current_year': fill_cal()['current_year'],
+        'current_month': fill_cal()['current_month'],
+        'today': datetime.today(),
+        'status1_quant': status1_quant,
     }
 
     if 'monthSwitch' in request.GET:
@@ -100,6 +107,9 @@ def calendar_view(request):
             'years': fill_cal(year=int(request.GET["yearSwitch"]))['year_list'],
             'zapisi': zapisi,
             'current_year': fill_cal(year=int(request.GET["yearSwitch"]))['current_year'],
+            'current_month': fill_cal(month=int(request.GET["monthSwitch"]))['current_month'],
+            'today': datetime.today(),
+            'status1_quant': status1_quant,
         }
     return render(request, 'main/calendar.html', context=context)
 

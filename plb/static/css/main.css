@@ -198,6 +198,10 @@ footer.footer {
     margin-bottom: 1rem;
 }
 
+.form-select-castom-small {
+    width: 10%;
+}
+
 .form-edit-price {
     border-radius: 10px;
     border-style: solid;
@@ -321,6 +325,12 @@ footer.footer {
 
 .headeer-calendar {
     border-radius: 14px 14px 14px 14px;
+
+}
+
+.headeer-calendar-today {
+    scroll-margin-top: 120px;
+    background-color: rgb(121, 187, 217);
 
 }
 
