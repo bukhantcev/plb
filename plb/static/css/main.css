@@ -166,6 +166,17 @@ footer.footer {
     box-shadow: none;
 }
 
+.text-sections-form-zapis {
+    background-color: #ffffff8b;
+    border-radius: 14px;
+    box-shadow: 0px 24px 10px -14px rgba(158, 158, 158, 1);
+    text-align: center;
+    text-shadow: #6656ac;
+    padding: 4px;
+    font-size: xx-large;
+    font-family: Roboto-Italic;
+    color: var(--btn-hover);
+}
 
 .errorlist >* {
     color: red;
@@ -595,8 +606,30 @@ ul >* {
     .modal-header-wrap {
         background-size: 100%;
     }
+    .text-sections-form-zapis {
+
+        font-size: 20px;
+
+    }
+    .form-select-castom {
+        font-size: 20px;
+        height: 50px;
+    }
+    .form-edit-price-txt {
+
+        font-size: 20px;
+        
+    }
   
 }
+
+@media (max-width: 435px) { 
+    .form-edit-price {
+        width: 80%;
+    }
+
+}
+
 @media (max-width: 990px) { 
     .col-uslugi {
         margin-right: 0px;

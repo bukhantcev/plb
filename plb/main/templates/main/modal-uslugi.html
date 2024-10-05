@@ -25,8 +25,9 @@
         </div>
         <div class="row">
           <div class="col d-flex justify-content-center">
-            <button type="button" class="btn btn-primary" style="float: inline-end;" data-bs-dismiss="modal"
+            <button type="button" class="btn btn-primary" value="{{ usluga.id }}" onclick="ZapisBtn(this.value)" style="float: inline-end;" data-bs-dismiss="modal"
           aria-label="Close">Записаться на процедуру</button>
+          <a href="#" id="link-uslugaName" style="display: none;"></a>
           </div>
         </div>
 
@@ -61,3 +62,12 @@
     </div>
   </div>
 </div>
+
+<script>
+  function ZapisBtn(value){
+
+   var lnk =  document.getElementById('link-uslugaName');
+   lnk.setAttribute('href', `/zapis-usluga?nameUslugi=${value}`);
+   lnk.click();
+  }
+</script>

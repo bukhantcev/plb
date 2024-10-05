@@ -1,6 +1,6 @@
 <!-- Modal -->
 
-<div class="modal fade" id="modalZapis-{{ zapis.id }}" tabindex="-1" aria-labelledby="modalzapistitl"
+<div class="modal fade" id="modalZapisEdit-{{ zapis.id }}" tabindex="-1" aria-labelledby="modalzapisedittitle"
   aria-hidden="true">
   <div class="modal-dialog modal-fullscreen">
     <div class="modal-content">
@@ -29,14 +29,15 @@
         <div class="row modal-body-row"
           style=" min-height: 740px;">
           <div class="col-8 offset-2">
-            <form action="" method="post">
+            <form action="calendar/zapis-edit" method="post">
               {% include 'main/zapis-form.html' %}
-              <button class="btn btn-primary" type="submit" name="editBtn" value="{{ zapis.id }}">Подтвердить запись</button>
+              <button class="btn btn-primary" type="submit" name="editBtn" value="{{ zapis.id }}">Сохранить изменения</button>
             </form>
+            
           </div>
         </div>
       </div>
 
     </div>
   </div>
-</div>
+</div> 

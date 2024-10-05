@@ -45,7 +45,7 @@ def home(request):
 
     return render(request, 'main/home.html', context=context)
 
-
+#----------------------------ZAPIS BEZ USLUGI
 def zapis(request):
     if request.method == 'POST':
 
@@ -75,15 +75,50 @@ def zapis(request):
                }
 
     return render(request, template_name='main/modal-zapis.html', context=context)
+#----------------------------ZAPIS S USLUGOI
+def zapis_usluga(request):
+    if 'nameUslugi' in request.GET:
+        nameUslugi = request.GET.get('nameUslugi')
+    if request.method == 'POST':
+
+        form_zapis = ZapisForm(request.POST)
+        if form_zapis.is_valid():
+
+            zapis = form_zapis.save(commit=False)
+            zapis.save()
+            new_zapis = Zapis.objects.get(id=zapis.id)
+            new_zapis.procedura_name = Uslugi.objects.get(id=nameUslugi)
+            new_zapis.save()
+            klient = Klients(name= request.POST.get('client_name'), phone= request.POST.get('phone'))
+
+            klient.save()
+
+            return render(request, 'main/zapis-success.html')
+        else:
+            print(form_zapis.cleaned_data)
+    else:
+        form_zapis = ZapisForm()
 
 
+    context = {
+        'uslugi': Uslugi.objects.order_by('id'),
+        'groups': Uslugi_groups.objects.order_by('id'),
+        'media': 'static/media',
+        'sert': Sertifikate.objects.order_by('priority'),
+        'form_zapis': form_zapis,
+        'form_klients': KlientsForm
+               }
+
+    return render(request, template_name='main/modal-zapis.html', context=context)
 
 
+#_______________ZAPOLNENIE KALENDARYA
 def calendar_view(request):
 
 
 
     zapisi = Zapis.objects.all()
+    uslugi = Uslugi.objects.all()
     try:
         status1_quant = len(zapisi.filter(zapis_status='1'))
     except:
@@ -98,6 +133,7 @@ def calendar_view(request):
         'current_month': fill_cal()['current_month'],
         'today': datetime.today(),
         'status1_quant': status1_quant,
+        'uslugi': uslugi,
     }
 
     if 'monthSwitch' in request.GET:
@@ -110,12 +146,13 @@ def calendar_view(request):
             'current_month': fill_cal(month=int(request.GET["monthSwitch"]))['current_month'],
             'today': datetime.today(),
             'status1_quant': status1_quant,
+            'uslugi': uslugi,
         }
-    return render(request, 'main/calendar.html', context=context)
+    return render(request, 'main/calendar.html', context=context) if request.user.is_staff else redirect('home')
 
 
 
-
+#______________________________STRANICA NEPODTVERGDENNIH ZAPISEI
 def calendar_gdut_view(request):
     zapisi = Zapis.objects.all()
     uslugi = Uslugi.objects.all()
@@ -153,13 +190,59 @@ def calendar_gdut_view(request):
             zapis.save()
             return redirect('/calendar/jdut-podtvergdeniy')
         except:
-            return render(request, 'main/calendar-gdut.html', context=context)
+            return render(request, 'main/calendar-gdut.html', context=context) if request.user.is_staff else redirect('home')
 
 
 
 
 
     return render(request, 'main/calendar-gdut.html', context=context)
+#---------------------REDAKTIROVANIE ZAPISEI
+def calendar_edit(request):
+    print(request.POST)
+    zapisi = Zapis.objects.all()
+    uslugi = Uslugi.objects.all()
+
+
+    try:
+        status1_quant = len(zapisi.filter(zapis_status='1'))
+    except:
+        status1_quant = 0
+    context = {
+        'zapisi': zapisi,
+        'uslugi': uslugi,
+        'status1_quant': status1_quant,
+    }
+
+    if 'editBtn' in request.POST:
+
+        id_zapisi = request.POST.get('editBtn')
+
+        zapis = Zapis.objects.get(id=id_zapisi)
+        try:
+            if request.POST.get('date') != '':
+                zapis.date_proceduri = request.POST.get('date')
+            if request.POST.get('time') != '':
+                zapis.time_proceduri = request.POST.get('time')
+            if request.POST.get('price') != '':
+                zapis.price = request.POST.get('price')
+            if request.POST.get('recomendacii') != '':
+                zapis.descr = request.POST.get('recomendacii')
+            if request.POST.get('usluga') != '':
+                id_uslugi = str(request.POST.get('usluga')).split('-')[1]
+                name_usluga = Uslugi.objects.get(id=id_uslugi)
+                zapis.procedura_name = name_usluga
+            zapis.zapis_status = '2'
+            zapis.save()
+            return redirect('/calendar')
+        except:
+            return render(request, 'main/calendar.html', context=context)
+
+
+
+
+
+    return render(request, 'main/calendar.html', context=context) if request.user.is_staff else redirect('home')
 
 
 

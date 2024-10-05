@@ -1,7 +1,12 @@
-<li><a class="abtn" href="#main-about"><button id="tm1" ыtype="button" onclick="Calendar()" class="btn btn-primary">Chiara</button></a></li>
-<li><a class="abtn" href="#main-about"><button id="tm1" ыtype="button" class="btn btn-primary">Обо мне</button></a></li>
-<li><a class="abtn" href="#main-uslugi"><button id="tm2" ыtype="button" class="btn btn-primary">Услуги</button></a></li>
+{% if request.user.is_staff %}
 
-<li><a class="abtn" href="#"><button id="tm3"  type="button" class="btn btn-primary">Акции</button></a></li>
-<li><a class="abtn" href="#"><button id="tm4"  type="button" class="btn btn-primary">Отзывы</button></a></li>
+
+<li><a class="abtn" href="#main-about"><button id="tm1" ыtype="button" onclick="Calendar()" class="btn btn-primary">Chiara</button></a></li>
+{% endif %}
+<li><a class="abtn" href="#main-uslugi"><button id="tm2" ыtype="button" class="btn btn-primary">Услуги</button></a></li>
+<li><a class="abtn" href="#main-about"><button id="tm1" ыtype="button" class="btn btn-primary">Обо мне</button></a></li>
+<li><a class="abtn" href="#"><button id="tm3"  type="button" class="btn btn-primary" style="display: none;">Акции</button></a></li>
+<li><a class="abtn" href="#"><button id="tm4"  type="button" class="btn btn-primary" style="display: none;">Отзывы</button></a></li>
 <li><a class="abtn" href="#"><button id="tm5"  type="button" class="btn btn-primary">Контакты</button></a></li>
+
+

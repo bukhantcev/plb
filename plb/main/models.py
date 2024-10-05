@@ -99,7 +99,7 @@ class Zapis(models.Model):
     create_date = models.DateField(verbose_name="Дата создания записи", auto_now_add=True)
     client_name = models.CharField(max_length=50, verbose_name='Имя клиента')
     phone = models.CharField(max_length=50, verbose_name='Номер телефона', default='')
-    procedura_name = models.ForeignKey(to=Uslugi, on_delete=models.CASCADE, verbose_name='Название процедуры', default=1)
+    procedura_name = models.ForeignKey(to=Uslugi, on_delete=models.CASCADE, verbose_name='Название процедуры', blank=True, null=True, default='')
     date_proceduri = models.DateField(verbose_name='Дата и время процедуры', default=datetime.now().date())
     time_proceduri = models.TimeField(verbose_name='Время записи', default=datetime.now().time())
     zapis_status = models.CharField(choices=Status.choices, default=Status.GDET, max_length=20)
