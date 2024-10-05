@@ -100,6 +100,10 @@ footer.footer {
    
 }
 
+.text-sections-contacts {
+    font-size: 20px;
+}
+
 .text-sections-modal-uslugi {
     margin-top: 20px;
     text-align: start;
@@ -448,6 +452,10 @@ ul >* {
 .col-group {
     background-size: 0%;
     background-repeat: no-repeat;
+}
+
+.contacts {
+    scroll-margin-top: 50px;
 }
 
 /* MAIN */
