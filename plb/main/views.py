@@ -121,10 +121,14 @@ def calendar_gdut_view(request):
     uslugi = Uslugi.objects.all()
 
 
-
+    try:
+        status1_quant = len(zapisi.filter(zapis_status='1'))
+    except:
+        status1_quant = 0
     context = {
         'zapisi': zapisi,
         'uslugi': uslugi,
+        'status1_quant': status1_quant,
     }
 
     if 'editBtn' in request.POST:

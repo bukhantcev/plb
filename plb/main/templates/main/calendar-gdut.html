@@ -26,6 +26,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-4 offset-4">
+                {% if status1_quant == 0 %} <p class="text-sections" style="margin-top: 50px;">Неподтвержденных записей нет</p> {% endif %}
                 {% for zapis in zapisi %}
                 {% if zapis.zapis_status == '1' %}
                 <button class="btn btn-primary btn-primary-zapisi" id="zapis-{{zapis.id}}" data-bs-toggle="modal" data-bs-target="#modalZapis-{{ zapis.id }}" style="margin-top: 2rem;">{{ zapis.create_date }} {{ zapis.client_name }}</button>
