@@ -14,6 +14,7 @@ from .models import Uslugi, Uslugi_groups, Sertifikate, Zapis, Klients
 from django.contrib import messages
 from .calendar_fill import fill_cal
 from django.http import JsonResponse
+from telegram.telegram_base import sendMessage
 
 
 def welcome(request):
@@ -57,7 +58,10 @@ def zapis(request):
             klient = Klients(name= request.POST.get('client_name'), phone= request.POST.get('phone'))
 
             klient.save()
-
+            try:
+                sendMessage()
+            except:
+                print('Не удалось отправить сообщение')
             return render(request, 'main/zapis-success.html')
         else:
             print(form_zapis.cleaned_data)
@@ -92,7 +96,10 @@ def zapis_usluga(request):
             klient = Klients(name= request.POST.get('client_name'), phone= request.POST.get('phone'))
 
             klient.save()
-
+            try:
+                sendMessage()
+            except:
+                print('Не удалось отправить сообщение')
             return render(request, 'main/zapis-success.html')
         else:
             print(form_zapis.cleaned_data)
@@ -199,7 +206,7 @@ def calendar_gdut_view(request):
     return render(request, 'main/calendar-gdut.html', context=context)
 #---------------------REDAKTIROVANIE ZAPISEI
 def calendar_edit(request):
-    print(request.POST)
+
     zapisi = Zapis.objects.all()
     uslugi = Uslugi.objects.all()
 
@@ -250,7 +257,6 @@ def calendar_edit(request):
 
 def CustomCal(request):
 
-    print('ok')
     zapisi = Zapis.objects.all()
     context = {
         'fill_cal': fill_cal()['date_list'],
