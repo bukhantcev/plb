@@ -1,3 +1,4 @@
+import os
 from datetime import datetime
 from http.cookiejar import month
 from lib2to3.fixes.fix_input import context
@@ -23,8 +24,12 @@ def welcome(request):
     return render(request, 'main/welcome.html')
 
 def home(request):
-
-
+    # obj = Uslugi.objects.all()
+    # for i in obj:
+    #     os.mkdir(f'/Users/buha/Documents/Новая папка/{i.name}')
+    #     my_file = open(f'/Users/buha/Documents/Новая папка/{i.name}/{i.name}.txt', "w+")
+    #     my_file.write("")
+    #     my_file.close()
 
 
 

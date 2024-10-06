@@ -109,6 +109,21 @@ footer.footer {
     text-align: start;
     padding: 10px !important;
 }
+#descr-usluga p {
+    background-color: #ffffff8b;
+    border-radius: 14px;
+    box-shadow: 0px 24px 10px -14px rgba(158, 158, 158, 1);
+    text-align: center;
+    text-shadow: #6656ac;
+    padding: 4px;
+    font-size: xx-large;
+    font-family: Roboto-Italic;
+    color: var(--btn-hover);
+   
+    margin-top: 20px;
+    text-align: start;
+    padding: 10px !important;
+}
 .title {
     margin-top: 2rem;
     color: #fff;
