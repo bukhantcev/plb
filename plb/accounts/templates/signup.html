@@ -1,19 +1,24 @@
-{% extends 'config/layout.html' %}
+{% extends 'config/layout-blank.html' %}
 
 
 {% block main %}
-
+<header class="header">
+  <div class="container-fluid">
+    <h1 class="title">
+      Регистрация
+    </h1>
+  </div>
+</header>
 
 <main>
-  <div class="container-fluid d-flex justify-content-center">
+  <div class="container-fluid d-flex justify-content-center main" style="padding: 80px;">
     <div class="row">
       <div class="col">
         <div class="card">
-          <div class="card-body">
+          <div class="card-body main">
 
             <form method="POST" novalidate>
               {% csrf_token %}
-              <h2>Регистрация</h2>
 
               {% for field in form %}
               <p>
@@ -27,8 +32,8 @@
               {{ field.label_tag }}<br> {{ field }}
               </p>
               {% endfor %}
-              <button class="btn btn-success" type="submit">Создать пользователя</button>
-              <a href="{%url 'login' %}">Вход</a>
+              <button class="btn btn-primary" type="submit">Создать пользователя</button>
+              <a href="{%url 'login' %}" style="display: none;">Вход</a>
             </form>
           </div>
         </div>
