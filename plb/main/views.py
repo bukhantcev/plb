@@ -1,20 +1,14 @@
 import os
 from datetime import datetime
-from http.cookiejar import month
-from lib2to3.fixes.fix_input import context
-from lib2to3.pgen2.tokenize import group
 
-from django.db.models import Model
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from sympy.logic.inference import valid
-from sympy.plotting.textplot import is_valid
+
 
 from .forms import ZapisForm, KlientsForm
 from .models import Uslugi, Uslugi_groups, Sertifikate, Zapis, Klients
-from django.contrib import messages
+
 from .calendar_fill import fill_cal
-from django.http import JsonResponse
+
 from telegram.telegram_base import sendMessage
 
 
