@@ -116,7 +116,7 @@ footer.footer {
     text-align: center;
     text-shadow: #6656ac;
     padding: 4px;
-    font-size: xx-large;
+    font-size: x-large;
     font-family: Roboto-Italic;
     color: var(--btn-hover);
    
@@ -712,4 +712,12 @@ ul >* {
     .calendar-header-menu {
         order: -1 !important;
     }
+}
+
+@media (max-width: 541px) { 
+.btn-primary-edit {
+    margin-bottom: 2rem;
+
+}   
+
 }

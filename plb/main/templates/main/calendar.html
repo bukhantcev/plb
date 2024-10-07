@@ -112,9 +112,14 @@
                         {% if day.date == zapis.date_proceduri %}
                         {% if zapis.zapis_status != '1' %}
                         {% include 'main/modal-zapis-edit.html' %}
+                        {% if zapis.zapis_status == '2' %}
                         <button class="btn-primary btn-primary-zapisi" id="zapis-{{zapis.id}}" data-bs-toggle="modal"
-                            data-bs-target="#modalZapisEdit-{{ zapis.id }}" style="margin-top: 2rem;">{{zapis.time_proceduri }} {{ zapis.client_name }}</button>
+                            data-bs-target="#modalZapisEdit-{{ zapis.id }}" style="margin-top: 0.3rem;">{{zapis.time_proceduri }} {{ zapis.client_name }}</button>
+                        {% elif zapis.zapis_status == '3' %}
+                        <button class="btn-primary btn-primary-zapisi" id="zapis-{{zapis.id}}" data-bs-toggle="modal"
+                        data-bs-target="#modalZapisEdit-{{ zapis.id }}" style="margin-top: 0.3rem; background-color: rgb(149, 75, 75);">{{zapis.time_proceduri }} {{ zapis.client_name }}</button>
 
+                        {% endif %}
                         {% endif %}
                         {% endif %}
                         {% endfor %}

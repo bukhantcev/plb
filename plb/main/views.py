@@ -211,6 +211,7 @@ def calendar_gdut_view(request):
     return render(request, 'main/calendar-gdut.html', context=context)
 #---------------------REDAKTIROVANIE ZAPISEI
 def calendar_edit(request):
+    print(request.POST)
 
     zapisi = Zapis.objects.all()
     uslugi = Uslugi.objects.all()
@@ -240,15 +241,20 @@ def calendar_edit(request):
                 zapis.price = request.POST.get('price')
             if request.POST.get('recomendacii') != '':
                 zapis.descr = request.POST.get('recomendacii')
+            if request.POST.get('status') != '':
+                zapis.zapis_status = request.POST.get('status')
             if request.POST.get('usluga') != '':
                 id_uslugi = str(request.POST.get('usluga')).split('-')[1]
                 name_usluga = Uslugi.objects.get(id=id_uslugi)
                 zapis.procedura_name = name_usluga
-            zapis.zapis_status = '2'
             zapis.save()
             return redirect('/calendar')
         except:
             return render(request, 'main/calendar.html', context=context)
+
+    if 'deleteBtn' in request.POST:
+        Zapis.objects.filter(id=int(request.POST.get('deleteBtn'))).delete()
+        return redirect('/calendar')
 
 
 
