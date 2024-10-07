@@ -45,10 +45,12 @@
         <div class="row modal-body-row"
           style="background-image: url('{{media}}/{{usluga.bg_image}}'); min-height: 740px;">
           <div class="col" id="descr-usluga">
+            {% autoescape off %}
             <h1 class="title title-uslugi">Описание:</h1><br>
             <p class="text-sections text-sections-modal-uslugi">
-              {{ usluga.desc|linebreaks }}
+              {{ usluga.desc }}
             </p>
+            {% endautoescape %}
           </div>
           <div class="col">
             <h1 class="title title-uslugi">Стоимость:</h1><br>
