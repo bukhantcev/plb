@@ -1,2 +1,1 @@
-BOT_TOKEN='7698051057:AAHFTKznFNDzyjLHSofwAJ0xY9H7M3S2sBI'
-CHAT_ID = "404354012"
+# use file input_config

@@ -2,7 +2,7 @@
 import requests
 
 
-from .input import BOT_TOKEN, CHAT_ID
+from .input_config import BOT_TOKEN, CHAT_ID
 
 
 BOT_TOKEN = BOT_TOKEN
