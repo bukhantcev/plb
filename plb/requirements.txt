@@ -2,3 +2,4 @@ django==5.1.1
 pillow==10.4.0
 django-phonenumber-field==8.0.0
 requests
+gunicorn
