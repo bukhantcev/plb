@@ -25,6 +25,7 @@ SECRET_KEY = 'django-insecure-r2+=gk7or&w==%f_((b5j+!4xprq*lz-9sjv)*$4=(6a^k6&c2
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+# DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '78.111.88.18', '79.174.81.159', 'mohnatii.ru', 'pourlabeaute.ru']
 
@@ -129,10 +130,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [
-    BASE_DIR /"static"/"static",
+    BASE_DIR /"statics",
 
 ]
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATIC_DIR = os.path.join(BASE_DIR, 'plb/static')
+
+
 
 LOGIN_REDIRECT_URL =  '/'
 LOGOUT_REDIRECT_URL =  '/'
