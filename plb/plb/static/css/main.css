@@ -35,6 +35,9 @@
     display: flex;
     flex-direction: column;
     animation: up 2s;
+    max-width: 100%;
+    overflow: hidden;
+    width: 100%;
 }
 
 
