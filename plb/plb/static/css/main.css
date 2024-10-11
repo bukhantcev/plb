@@ -43,6 +43,7 @@ html,
 body {
     height: 100%;
     animation: body-bg-down 2s;
+    max-width: 100%;
 
 
 
