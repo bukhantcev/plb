@@ -38,6 +38,7 @@
     max-width: 100%;
     overflow: hidden;
     width: 100%;
+    position: absolute;
 }
 
 
