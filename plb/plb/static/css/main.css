@@ -75,6 +75,7 @@ main.main {
     position: relative;
     min-height: 800px;
     scroll-margin-top: 80px;
+    overflow-x: hidden;
 
 }
 .main {
