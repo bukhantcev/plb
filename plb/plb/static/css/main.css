@@ -1,4 +1,9 @@
 :root {
+
+
+
+    --secondary: #417690;
+
     --header-color: #bfbfff;
     --btn-hover: #6656ac;
     --btn-base: #8e7dd9;
@@ -27,6 +32,8 @@
     font-style: normal;
     font-weight: normal;
 }
+
+
 
 
 /* BASE */
@@ -371,6 +378,7 @@ footer.footer {
     border-style: solid;
 
 }
+
 
 .headeer-calendar {
     border-radius: 14px 14px 14px 14px;
