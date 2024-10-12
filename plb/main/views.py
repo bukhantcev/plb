@@ -269,3 +269,11 @@ def CustomCal(request):
     }
 
     return render(request, 'main/calendar.html', context=context)
+
+
+
+
+def politica_conf(request):
+
+
+    return render(request, 'main/politica-conf.html')
