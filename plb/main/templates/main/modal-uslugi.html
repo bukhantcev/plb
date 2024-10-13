@@ -1,5 +1,5 @@
 <!-- Modal -->
-
+ {% load my_filters %}
 <div class="modal fade" id="modaluslugi-{{ usluga.id }}" tabindex="-1" aria-labelledby="modaluslugititl"
   aria-hidden="true">
   <div class="modal-dialog modal-fullscreen">
@@ -54,23 +54,38 @@
           </div>
           <div class="col">
             <h1 class="title title-uslugi">Стоимость:</h1><br>
-            <p class="text-sections text-sections-modal-uslugi text-sections-modal-uslugi-price">
-              {% for preparat in preparati %}
+            <div class="row d-none d-sm-flex" id="price-usluga">
+              <div class="col">
+                <p class="text-sections text-sections-modal-uslugi">Название:</p>
+              </div>
+              <div class="col">
+                <p class="text-sections text-sections-modal-uslugi">Количество:</p>
+              </div>
+              <div class="col">
+                <p class="text-sections text-sections-modal-uslugi" style="float: right;">Цена:</p>
+              </div>
+            </div>
 
-              <div class="row">
+              {% for preparat in preparati %}
+              {% if preparat.procedura|stringformat:"i" == usluga.name|stringformat:"i" %}
+              {% if not forloop.counter|chet %}
+              <div class="row" id="price-usluga">
+                {% else %}
+                <div class="row" id="price-usluga" style="background-color: #bfbfff">
+                  {% endif %}
                 <div class="col">
-                  <p class="text-sections">{{ preparat.name }}</p>
+                  <p class="text-sections text-sections-modal-uslugi">{{ preparat.name }}</p>
                 </div>
                 <div class="col">
-                  <p class="text-sections">{{ preparat.kolichestvo }} {{ preparat.edinica }}</p>
+                  <p class="text-sections text-sections-modal-uslugi">{{ preparat.kolichestvo }} {{ preparat.edinica }}</p>
                 </div>
                 <div class="col">
-                  <p class="text-sections">{{ preparat.price}}</p>
+                  <p class="text-sections text-sections-modal-uslugi" style="float: right;">{{ preparat.price}}</p>
                 </div>
               </div>
-
+              {% endif %}
               {% endfor %}
-            </p>
+
           </div>
         </div>
       </div>
