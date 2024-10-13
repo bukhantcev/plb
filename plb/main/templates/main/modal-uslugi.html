@@ -55,8 +55,8 @@
           
           <div class="col" style="margin-bottom: 50px;">
             <h1 class="title title-uslugi">Стоимость:</h1><br>
-            {% if preparati|length != 0 %}
-            <div class="row d-none d-sm-flex" id="price-usluga">
+            <p class="text-sections text-sections-modal-uslugi" id="price" style="font-size: x-large;">{{ usluga.price }}</p>
+            <div class="row d-none" id="price-usluga-title">
               <div class="col">
                 <p class="text-sections text-sections-modal-uslugi">Название:</p>
               </div>
@@ -69,8 +69,14 @@
             </div>
 
               {% for preparat in preparati %}
-              {% if preparat.procedura|stringformat:"i" == usluga.name|stringformat:"i" %}
+              {% if preparat.procedura == usluga %}
               {% if not forloop.counter|chet %}
+              <script>
+                document.getElementById('price').setAttribute('style', 'display: none; ');
+                document.getElementById('price-usluga-title').setAttribute('class', 'row d-none d-sm-flex');
+
+              </script>
+              
               <div class="row" id="price-usluga">
                 {% else %}
                 <div class="row" id="price-usluga" style="background-color: #bfbfff50">
@@ -87,9 +93,7 @@
               </div>
               {% endif %}
               {% endfor %}
-              {% else %}
-              <p class="text-sections text-sections-modal-uslugi">{{ usluga.price }}</p>
-              {% endif %}
+
           </div>
           
         </div>
