@@ -152,7 +152,7 @@ footer.footer {
     text-align: center;
     text-shadow: #6656ac;
     padding: 0px !important;
-    font-size: x-large;
+    font-size: small;
     font-family: Roboto-Italic;
     color: var(--btn-hover);
    
