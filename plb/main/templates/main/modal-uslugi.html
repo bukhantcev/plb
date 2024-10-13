@@ -56,7 +56,18 @@
             <h1 class="title title-uslugi">Стоимость:</h1><br>
             <p class="text-sections text-sections-modal-uslugi text-sections-modal-uslugi-price">
               {% for preparat in preparati %}
-              {{ preparat.procedura }}
+              {% if preparat.procedura == usluga.name %}
+              <div class="row">
+                <div class="col">
+                  <p class="text-sections">{{ preparat.name }}</p>
+                </div>
+                <div class="col">
+                  <p class="text-sections">{{ preparat.kolichestvo }} {{ preparat.edinica }}</p>
+                </div>
+                <div class="col">
+                  <p class="text-sections">{{ preparat.price}}</p>
+                </div>
+              </div>
               {% endfor %}
             </p>
           </div>
