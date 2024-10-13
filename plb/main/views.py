@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 
 
 from .forms import ZapisForm, KlientsForm
-from .models import Uslugi, Uslugi_groups, Sertifikate, Zapis, Klients
+from .models import Uslugi, Uslugi_groups, Sertifikate, Zapis, Klients, Preparati
 
 from .calendar_fill import fill_cal
 
@@ -39,7 +39,8 @@ def home(request):
         'media': 'static/media',
         'sert': Sertifikate.objects.order_by('priority'),
         'form_zapis': ZapisForm,
-        'form_klients': KlientsForm
+        'form_klients': KlientsForm,
+        'preparati': Preparati.objects.all(),
                }
 
 

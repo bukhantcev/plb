@@ -55,7 +55,9 @@
           <div class="col">
             <h1 class="title title-uslugi">Стоимость:</h1><br>
             <p class="text-sections text-sections-modal-uslugi text-sections-modal-uslugi-price">
-              {{ usluga.price }}
+              {% for preparat in preparati %}
+              {{ preparat.procedura }}
+              {% endfor %}
             </p>
           </div>
         </div>
