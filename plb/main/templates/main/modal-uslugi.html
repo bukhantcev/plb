@@ -56,7 +56,7 @@
             <h1 class="title title-uslugi">Стоимость:</h1><br>
             <p class="text-sections text-sections-modal-uslugi text-sections-modal-uslugi-price">
               {% for preparat in preparati %}
-              {% if preparat.procedura == usluga.name %}
+
               <div class="row">
                 <div class="col">
                   <p class="text-sections">{{ preparat.name }}</p>
@@ -68,7 +68,7 @@
                   <p class="text-sections">{{ preparat.price}}</p>
                 </div>
               </div>
-              {% endif %}
+
               {% endfor %}
             </p>
           </div>
