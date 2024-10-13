@@ -24,7 +24,7 @@ class Uslugi(models.Model):
     name = models.CharField(max_length=30, verbose_name='Название процедуры')
     group = models.ForeignKey(to="Uslugi_groups", on_delete=models.CASCADE, verbose_name="Группы процедур")
     desc = models.TextField(max_length=30000, verbose_name="Описание", default='', blank=True)
-    price = models.TextField(max_length=300, verbose_name='Стоимомть', default='', blank=True)
+    price = models.CharField(max_length=300, verbose_name='Стоимомть', default='', blank=True)
     bg_image = ImageMaskField(upload_to='uslugi_bg/', verbose_name="Фоновая картинка", blank=True)
 
 
@@ -126,7 +126,7 @@ class Preparati(models.Model):
     kolichestvo = models.CharField(max_length=30, verbose_name='Количество', default='')
     price = models.CharField(max_length=100, verbose_name='Цена', default='')
     procedura = models.ForeignKey(Uslugi, on_delete=models.CASCADE, verbose_name='Процедура', blank=True, null=True)
-    opisanie = models.CharField(max_length=1000, verbose_name='Описание', default='', blank=True)
+    opisanie = models.TextField(max_length=1000, verbose_name='Описание', default='', blank=True)
 
 
     class Meta:
