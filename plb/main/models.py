@@ -129,7 +129,7 @@ class Preparati(models.Model):
     opisanie = models.TextField(max_length=1000, verbose_name='Описание', default='', blank=True)
 
     def __str__(self):
-        return self.name, self.kolichestvo, self.edinica
+        return self.name
 
 
     class Meta:
