@@ -128,6 +128,9 @@ class Preparati(models.Model):
     procedura = models.ForeignKey(Uslugi, on_delete=models.CASCADE, verbose_name='Процедура', blank=True, null=True)
     opisanie = models.TextField(max_length=1000, verbose_name='Описание', default='', blank=True)
 
+    def __str__(self):
+        return self.name, self.kolichestvo, self.edinica
+
 
     class Meta:
         verbose_name = 'Препарат'
