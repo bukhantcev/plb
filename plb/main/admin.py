@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Uslugi_groups, Uslugi, Sertifikate, Klients, Zapis
+from .models import Uslugi_groups, Uslugi, Sertifikate, Klients, Zapis, Preparati
 
 
 admin.site.register(Uslugi)
@@ -24,3 +24,8 @@ class ZapisAdmin(admin.ModelAdmin):
     list_filter = ('client_name', 'phone', 'procedura_name', 'date_proceduri', 'time_proceduri', 'zapis_status',)
 
 
+@admin.register(Preparati)
+class PreparatiAdmin(admin.ModelAdmin):
+    list_display = ( 'name', 'kolichestvo', 'edinica', 'procedura', 'price',)
+    list_editable = ('kolichestvo', 'edinica', 'procedura', 'price',)
+    list_filter = ('name', 'kolichestvo', 'edinica', 'procedura', 'price', 'proishogdenie',)
