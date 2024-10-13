@@ -52,8 +52,10 @@
             </p>
             {% endautoescape %}
           </div>
+          
           <div class="col" style="margin-bottom: 50px;">
             <h1 class="title title-uslugi">Стоимость:</h1><br>
+            {% if preparati|length != 0 %}
             <div class="row d-none d-sm-flex" id="price-usluga">
               <div class="col">
                 <p class="text-sections text-sections-modal-uslugi">Название:</p>
@@ -85,8 +87,11 @@
               </div>
               {% endif %}
               {% endfor %}
-
+              {% else %}
+              <p class="text-sections text-sections-modal-uslugi">{{ usluga.price }}</p>
+              {% endif %}
           </div>
+          
         </div>
       </div>
 
