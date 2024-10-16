@@ -1,9 +1,8 @@
-import os
-from audioop import reverse
+
 from datetime import datetime
 
 from django.shortcuts import render, redirect
-from torchgen.utils import context
+
 
 from .forms import ZapisForm, KlientsForm
 from .models import Uslugi, Uslugi_groups, Sertifikate, Zapis, Klients, Preparati
