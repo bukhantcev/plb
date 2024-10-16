@@ -32,6 +32,14 @@
             <form action="" method="post">
               {% include 'main/zapis-form.html' %}
               <button class="btn btn-primary" type="submit" name="editBtn" value="{{ zapis.id }}">Подтвердить запись</button>
+              <div class="col  d-flex justify-content-start" id="deleteBtn" style="margin-top: 2rem; margin-bottom: 5rem;">
+                <button class="btn btn-primary btn-primary-edit" type="button" value="{{ zapis.id }}" onclick="DeleteBtnGdet(this)" style="float: right; background-color: red;">Удалить запись</button>
+
+              </div>
+              <div class="col  d-none justify-content-star"  id="deleteBtnPod-{{ zapis.id }}" style="margin-top: 2rem; margin-bottom: 5rem;">
+                <button class="btn btn-primary btn-primary-edit"  type="submit" name="deleteBtn" value="{{ zapis.id }}" style="float: right; background-color: red;">Подтвердить удаление</button>
+
+              </div>
             </form>
           </div>
         </div>
@@ -40,3 +48,17 @@
     </div>
   </div>
 </div>
+
+<script>
+  function DeleteBtnGdet(obj){
+    
+    obj.parentNode.setAttribute('class', 'col  d-none justify-content-center');
+    document.getElementById(`deleteBtnPod-${obj.value}`).setAttribute('class', 'col  d-flex justify-content-start');
+
+
+    setTimeout( ()=>{
+    obj.parentNode.setAttribute('class', 'col  d-flex justify-content-center');
+    document.getElementById(`deleteBtnPod-${obj.value}`).setAttribute('class', 'col  d-none justify-content-start');
+    }, 3000)
+  }
+</script>

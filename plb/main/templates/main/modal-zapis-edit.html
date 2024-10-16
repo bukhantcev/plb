@@ -13,7 +13,7 @@
             aria-label="Close">X</button>
           </div>
           <div class="col-12 col-md-8 offset-md-2 d-flex justify-content-center ">
-            <h1 class="title title-uslugi" id="modaluslugititle">{{ zapis.client_name }}</h>
+            <h1 class="title title-uslugi" id="modaluslugititle"><a class="title" href="/client-card?phone={{ zapis.phone }}">{{ zapis.client_name }}</a></h>
           </div>
 
           <div class="col">
@@ -31,7 +31,7 @@
           <div class="col-8 offset-2" style="padding-bottom: 100px; padding-top: 30px;">
             <form action="calendar/zapis-edit" method="post">
               {% include 'main/zapis-form.html' %}
-              <p class="text-sections text-sections-form-zapis" style="margin-bottom: 0px; box-shadow: none; border-radius: 14px 14px 0px 0px; margin-top: 1rem;">Статус процедуры: {% if zapis.zapis_status == "1" %}ждет подтверждения{% elif zapis.zapis_status == "2" %}подтверждено{% else %}отменено{% endif %}</p>
+              <p class="text-sections text-sections-form-zapis" style="margin-bottom: 0px; box-shadow: none; border-radius: 14px 14px 0px 0px; margin-top: 1rem;">Статус процедуры: {% if zapis.zapis_status == "1" %}ждет подтверждения{% elif zapis.zapis_status == "2" %}подтверждено{% elif zapis.zapis_status == "4" %}выполнено{% else %}отменено{% endif %}</p>
  
               <select name="status" class="form-select form-select-castom" style="border-radius: 0px 0px 14px 14px;" aria-label="Default select example">
                 
@@ -39,6 +39,7 @@
     
                 <option value="1">Ждет подтверждения</option>
                 <option value="2">Подтверждено</option>
+                <option value="4">Выполнено</option>
                 <option value="3">Отменено</option>
                 
               </select>

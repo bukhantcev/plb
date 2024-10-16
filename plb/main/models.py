@@ -1,5 +1,6 @@
 from datetime import datetime
 
+import django.utils.timezone
 from django.db import models
 from uuid import uuid4
 import os
@@ -75,11 +76,17 @@ class Sertifikate(models.Model):
 
 
 class Klients(models.Model):
-     name = models.CharField(max_length=50, verbose_name='Имя клиента', default='')
+     name = models.CharField(max_length=50, verbose_name='Имя', default='')
+     otchestvo = models.CharField(max_length=50, verbose_name='Отчество', default='', blank=True)
+     last_name = models.CharField(max_length=50, verbose_name='Фамилия', default='')
+     date_r = models.DateField(verbose_name='Дата рождения', default=None, blank=True, null=True)
+     hron = models.TextField(verbose_name="Хронические заболевания", max_length=3000, default='', blank=True)
+     alergo = models.TextField(verbose_name="Алергоанамнез", max_length=3000, default='', blank=True)
+     primech = models.TextField(verbose_name="Примечания", max_length=3000, default='', blank=True)
      phone = models.CharField(max_length=50, verbose_name='Номер телефона клиента', default='')
 
      def __str__(self):
-         return self.name
+         return f'{self.name} {self.last_name}'
 
      class Meta:
          verbose_name = 'Клиент'
@@ -94,6 +101,7 @@ class Zapis(models.Model):
     class Status(models.TextChoices):
         GDET = '1', 'Ждет подтверждения'
         OK = '2', 'Подтверждено'
+        COMPLET = '4', 'Выполнено'
         DELETE = '3', 'Отменено'
 
 
@@ -105,10 +113,12 @@ class Zapis(models.Model):
     time_proceduri = models.TimeField(verbose_name='Время записи', default=datetime.now().time())
     zapis_status = models.CharField(choices=Status.choices, default=Status.GDET, max_length=20)
     price = models.CharField(max_length=50, verbose_name="Стоимость", default='', blank=True)
-    descr = models.TextField(max_length=300, verbose_name='Описание', default='', blank=True)
-
-
-
+    descr = models.TextField(max_length=500, verbose_name='Описание', default='', blank=True)
+    primechanie = models.TextField(max_length=500, verbose_name='Примечание', default='', blank=True)
+    preparat = models.ForeignKey(to='Preparati', on_delete=models.CASCADE, verbose_name='Препарат', blank=True, null=True, default='')
+    kolvo_preparata = models.CharField(max_length=100, verbose_name="Количество препарата", default='', blank=True)
+    zone = models.CharField(max_length=300, verbose_name="Зона введения", default='', blank=True)
+    next_date = models.DateField(verbose_name='Следующий визит', default=None, blank=True, null=True)
 
 
 

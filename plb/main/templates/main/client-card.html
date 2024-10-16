@@ -1,0 +1,150 @@
+<!-- Modal  ZAPIS-->
+{% extends 'config/layout-blank.html' %}
+
+{% block main %}
+
+
+<header class="header" id="header">
+  <div class="row">
+    <div class="col d-flex d-md-none justify-content-end">
+      <button type="button" class="btn btn-primary" value="{{ path }}" onclick="BackZapis(this.value)" style="float: inline-end;">X</button>
+    </div>
+    <div class="col-12 col-md-8 offset-md-2 d-flex justify-content-center ">
+      <h1 class="title title-uslugi" id="modaluslugititle">Карта клиента</h>
+    </div>
+
+    <div class="col">
+      <button type="button" class="btn btn-primary d-none d-md-flex"  value="{{ path }}" onclick="BackZapis(this.value)" style="float: inline-end;">Возврат</button>
+
+
+    </div>
+  </div>
+</header>
+
+<div class="main">
+<div class="col col-lg-4 offset-lg-4">
+<ul class="nav nav-tabs main justify-content-center" id="cardTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="home-tab" onclick="ShowBtn()" data-bs-toggle="tab" data-bs-target="#card1" type="button" role="tab" aria-controls="card1" aria-selected="true">Персональные данные</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="profile-tab" onclick="ShowBtn()" data-bs-toggle="tab" data-bs-target="#card2" type="button" role="tab" aria-controls="card2" aria-selected="false">Хронические заболевания</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="contact-tab" onclick="ShowBtn()" data-bs-toggle="tab" data-bs-target="#card3" type="button" role="tab" aria-controls="card3" aria-selected="false">Алергоанамнез</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="contact-tab" onclick="HdBtn()" data-bs-toggle="tab" data-bs-target="#card4" type="button" role="tab" aria-controls="card4" aria-selected="false">Пройденные процедуры</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="contact-tab" onclick="ShowBtn()" data-bs-toggle="tab" data-bs-target="#card6" type="button" role="tab" aria-controls="card6" aria-selected="false">Примечания</button>
+  </li>
+</ul>
+
+<div class="tab-content main" id="myTabContent" style="min-height: 800px;">
+  <div class="tab-pane fade show active" id="card1" role="tabpanel" aria-labelledby="card1-tab">
+<form action="" method="post">
+  {% csrf_token %}
+    <p class="text-sections text-sections-zapisi btn-primary-card" style="text-align: left;">
+      Фамилия: <input name="last_name" id="editLastName" style="float: right;" type="text" value="{{ klient.last_name }}">
+    </p>
+    <p class="text-sections text-sections-zapisi btn-primary-card" style="text-align: left;">
+      Имя: <input name="name" id="editName" type="text" style="float: right;" value="{{ klient.name }}">
+    </p>
+    <p class="text-sections text-sections-zapisi btn-primary-card" style="text-align: left;">
+      Отчество: <input name="otchestvo" id="editOtch" type="text" style="float: right;" value="{{ klient.otchestvo }}">
+    </p>
+    <p class="text-sections text-sections-zapisi btn-primary-card" style="text-align: left;">
+      Дата рождения: <input name="date_r" id="editDate" type="date" style="float: right;" value="{{ klient.date_r|date:'Y-m-d' }}">
+    </p>
+    <p class="text-sections text-sections-zapisi btn-primary-card" style="text-align: left;">
+      Полных лет: <label style="float: right; color: #000; margin-right: 15px;" for="">{{ age }}</label>
+    </p>
+
+       <div class="row">
+        <div class="col">
+          <p class="text-sections text-sections-zapisi btn-primary-card" style="text-align: left;">
+            Телефон: 
+          </p>
+        </div>
+        <div class="col text-sections text-sections-zapisi btn-primary-card">
+          <label for="#editPhone" style="float: right; margin-right: 5px; color: black">+7</label>
+        </div>
+        <div class="col text-sections text-sections-zapisi btn-primary-card" style="margin-right: 12px;">
+          <input name="phone" id="editPhone" type="phone" style="float: right;" value="{{ klient.phone }}">
+        </div>
+       </div>
+       
+  
+
+  </div>
+  <div class="tab-pane fade" id="card2" role="tabpanel" aria-labelledby="card2-tab">
+    <div class="container mt-3">
+      <textarea name="hron" id="txt_recom" class="form-edit form-edit-price form-edit-card-txt", rows="10", cols="10" style="width: 100%; border-radius: 14px 14px 14px 14px; color: #000">{{ klient.hron }}</textarea>
+
+    </div>
+  </div>
+  <div class="tab-pane fade" id="card3" role="tabpanel" aria-labelledby="card3-tab">
+    <div class="container mt-3">
+      <textarea name="alergo" id="txt_recom" class="form-edit form-edit-price form-edit-card-txt", rows="10", cols="10" style="width: 100%; border-radius: 14px 14px 14px 14px; color: #000">{{ klient.alergo }}</textarea>
+
+    </div>
+  </div>
+  <div class="tab-pane fade" id="card4" role="tabpanel" aria-labelledby="card4-tab">
+   {% for zapis in zapisi %}
+   {% if klient.phone == zapis.phone %}
+   {% if zapis.zapis_status == '4' %}
+   <div class="container d-flex justify-content-center mt-3"> 
+   <button class="btn-primary btn-primary-zapisi" type="button" id="zapis-{{zapis.id}}" data-bs-toggle="modal" data-bs-target="#modalZapisCard-{{ zapis.id }}" style="margin-top: 0.3rem; width: 80%;">{{zapis.date_proceduri }} {{ zapis.procedura_name }}</button>
+  </div>
+  {% include 'main/modal-zapis-card.html' %}
+   {% endif %}
+   {% endif %}
+   {% endfor %}
+  </div>
+
+  <div class="tab-pane fade" id="card6" role="tabpanel" aria-labelledby="card5-tab">
+    <div class="container mt-3">
+      <textarea name="primech" id="txt_recom" class="form-edit form-edit-price form-edit-card-txt", rows="10", cols="10" style="width: 100%; border-radius: 14px 14px 14px 14px;">{{ klient.primech }}</textarea>
+
+    </div>
+  </div>
+
+
+
+  <button class="btn btn-primary btn-primary-edit" id="btnsave" onclick="Msg()" name="btnClientCard" value="{{ klient.phone }}" type="submit">Сохранить</button>
+  <p id="message" style="color:green">{{ message }}</p>
+</form>
+</div>
+</div>
+</div>
+
+
+<script>
+  function BackZapis(value){
+      window.history.go(value);
+  }
+</script>
+
+
+<script>
+  function HdBtn(){
+    document.getElementById('btnsave').setAttribute('class', 'btn btn-primary btn-primary-edit d-none');
+  }
+  function ShowBtn(){
+    document.getElementById('btnsave').setAttribute('class', 'btn btn-primary btn-primary-edit');
+
+  }
+</script>
+
+<script>
+window.addEventListener('load', ()=> {
+    setTimeout( function(){
+      document.getElementById('message').setAttribute('class', 'd-none');
+    }, 3000);
+  })
+</script>
+
+
+
+{% endblock %}

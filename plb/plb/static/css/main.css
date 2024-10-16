@@ -120,6 +120,18 @@ footer.footer {
     color: var(--btn-hover);
    
 }
+.text-sections {
+    background-color: none;
+
+    box-shadow: none;
+    text-align: center;
+    text-shadow: #6656ac;
+    padding: 0px;
+    font-size: x-large;
+    font-family: Roboto-Italic;
+    color: var(--btn-hover);
+   
+}
 
 .text-sections-contacts {
     font-size: 20px;
@@ -316,8 +328,15 @@ footer.footer {
     background-color: #ffffff8b;
     color: var(--btn-hover);
     font-family: Roboto-Italic;
-    font-size: 30px;
+    font-size: 20px;
     
+}
+
+.form-edit-card-txt {
+    background-color: #ffffff8b;
+    color: var(--btn-hover);
+    font-family: Roboto-Italic;
+    font-size: 30px;
 }
 
 .link-custom {
@@ -348,7 +367,17 @@ footer.footer {
     border-style: solid;
 
 }
-
+.btn-primary-card {
+    color: var(--btn-hover);
+    background-color: #ffffff00;
+    box-shadow: none;
+    font-family: Caveat-Bold;
+    transition: 0.1s;
+    border-radius: none;
+    border-color: none;
+    border-width: 1px;
+    border-style: none;
+}
 
 .btn-primary:hover {
     color: #fff;
@@ -642,6 +671,9 @@ ul >* {
 
 }
 
+#cardTab .nav-item > button {
+    width: 400px;
+}
 
 
 @keyframes up {
@@ -791,6 +823,11 @@ ul >* {
     .calendar-header-menu {
         order: -1 !important;
     }
+    .form-edit-card-txt {
+
+        font-size: 18px;
+    }
+    
 }
 
 @media (max-width: 541px) { 

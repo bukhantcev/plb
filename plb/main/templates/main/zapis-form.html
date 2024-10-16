@@ -1,6 +1,6 @@
 
         {% csrf_token %}
-        <p class="text-sections text-sections-form-zapis">Номер телефона: {{ zapis.phone }}</p>
+        <p class="text-sections text-sections-form-zapis">Номер телефона: <a class="text-sections text-sections-link" href="tel: +7{{ zapis.phone }}">+7{{ zapis.phone }}</a></p>
         <p class="text-sections text-sections-form-zapis" style="margin-bottom: 0px; box-shadow: none; border-radius: 14px 14px 0px 0px;">Выбрана процедура: {% if zapis.procedura_name == None %} не выбрана {% else %} {{zapis.procedura_name}} {% endif %}</p>
           <select name="usluga" class="form-select form-select-castom" style="border-radius: 0px 0px 14px 14px;" aria-label="Default select example">
             <option selected value="" ><p class="text-sections text-sections-form-zapis">Изменить</p></option>
@@ -11,11 +11,31 @@
             {% endfor %}
           </select>
           
-          
+
         <p class="text-sections text-sections-form-zapis">Дата процедуры: <input name="date" value="{{ zapis.date_proceduri|date:'Y-m-d'}}" class="form-edit" type="date"></p>
         <p class="text-sections text-sections-form-zapis">Время процедуры: <input name="time" id="time" value="{{ zapis.time_proceduri|time:'H:i'}}" class="form-edit" type="time"></p>
         <p class="text-sections text-sections-form-zapis">Стоимость процедуры: <input name="price" value="{{ zapis.price }}" class="form-edit form-edit-price" type="text"></p>
         <p class="text-sections text-sections-form-zapis" style="margin-bottom: 0px; border-radius: 14px 14px 0px 0px;">Рекомендации:</p>
         <textarea name="recomendacii" id="txt_recom" class="form-edit form-edit-price form-edit-price-txt", rows="3", cols="10" style="width: 100%; border-radius: 0px 0px 14px 14px;">{{ zapis.descr }}</textarea>
+        <p class="text-sections text-sections-form-zapis" style="margin-bottom: 0px; box-shadow: none; border-radius: 14px 14px 0px 0px;">Выбран препарат: {% if zapis.preparat == None %} не выбран {% else %} {{zapis.preparat}} {% endif %}</p>
+          <select name="preparat" class="form-select form-select-castom" style="border-radius: 0px 0px 14px 14px;" aria-label="Default select example">
+            <option selected value="" ><p class="text-sections text-sections-form-zapis">Изменить</p></option>
+            {% for preparat in preparati %}
+
+            <option value="preparatId-{{ preparat.id }}">{{ preparat.name }}</option>
+            
+            {% endfor %}
+          </select>
+          <p class="text-sections text-sections-form-zapis">Количество препарата: <input name="kolvo_preparata" value="{{ zapis.kolvo_preparata }} " class="form-edit form-edit-price" type="text"></p>
+
+          <p class="text-sections text-sections-form-zapis">Зона введения: <input name="zone" value="{{ zapis.zone }}" class="form-edit form-edit-price" type="text"></p>
+
+          <p class="text-sections text-sections-form-zapis" style="margin-bottom: 0px; border-radius: 14px 14px 0px 0px;">Примечание:</p>
+        <textarea name="primechanie" id="txt_recom" class="form-edit form-edit-price form-edit-price-txt", rows="3", cols="10" style="width: 100%; border-radius: 0px 0px 14px 14px;">{{ zapis.primechanie }}</textarea>
+
+
+        <p class="text-sections text-sections-form-zapis">Дата следующего визита: <input name="next_date" value="{{ zapis.next_date|date:'Y-m-d'}}" class="form-edit" type="date"></p>
+
+
         
 

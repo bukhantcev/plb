@@ -1,0 +1,82 @@
+<!-- Modal -->
+
+<div class="modal fade" id="modalZapisCard-{{ zapis.id }}" tabindex="-1" aria-labelledby="modalzapistitl"
+  aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="header modal-header-wrap" style="padding: 10px;">
+
+
+        <div class="row">
+          <div class="col d-flex d-md-none justify-content-end">
+            <button type="button" class="btn btn-primary" style="float: inline-end;" data-bs-dismiss="modal"
+            aria-label="Close">X</button>
+          </div>
+          <div class="col-12 col-md-8 offset-md-2 d-flex justify-content-center ">
+            <h1 class="title title-uslugi" id="modaluslugititle">{{zapis.date_proceduri }} {{ zapis.procedura_name }}</h>
+          </div>
+
+          <div class="col">
+            <button type="button" class="btn btn-primary d-none d-md-flex" style="float: inline-end;" data-bs-dismiss="modal"
+            aria-label="Close">Возврат</button>
+
+
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-body main modal-body-uslugi" style="width: 100%; min-height: 740px;">
+        <div class="row modal-body-row"
+          style=" min-height: 740px;">
+
+            <div class="col col-lg-6 offset-lg-3">
+              <p class="text-sections text-sections-zapisi btn-primary-card" style="text-align: center; margin-bottom: 0px;">
+               ФИО: <p class="form-edit form-edit-price form-edit-card-txt" style="text-align: center;">{{ klient.last_name }} {{ klient.name }} {{ klient.otchestvo }} </p>
+              </p>
+              <p class="text-sections text-sections-zapisi btn-primary-card" style="text-align: center; margin-bottom: 0px;">
+                Дата рождения: <p class="form-edit form-edit-price form-edit-card-txt" style="text-align: center;">{{ klient.date_r|date:'d-m-Y' }} </p>
+               </p>
+               <p class="text-sections text-sections-zapisi btn-primary-card" style="text-align: center; margin-bottom: 0px;">
+                Полных лет: <p class="form-edit form-edit-price form-edit-card-txt" style="text-align: center;">{{ age }} </p>
+               </p>
+               <p class="text-sections text-sections-zapisi btn-primary-card" style="text-align: center; margin-bottom: 0px;">
+                Процедура: <p class="form-edit form-edit-price form-edit-card-txt" style="text-align: center;">{{ zapis.procedura_name }} </p>
+               </p>
+               <p class="text-sections text-sections-zapisi btn-primary-card" style="text-align: center; margin-bottom: 0px;">
+                Препарат: <p class="form-edit form-edit-price form-edit-card-txt" style="text-align: center;">{{ zapis.preparat }} </p>
+               </p>
+               <p class="text-sections text-sections-zapisi btn-primary-card" style="text-align: center; margin-bottom: 0px;">
+                Количество препарата: <p class="form-edit form-edit-price form-edit-card-txt" style="text-align: center;">{{ zapis.kolvo_preparata }} </p>
+               </p>
+               <p class="text-sections text-sections-zapisi btn-primary-card" style="text-align: center; margin-bottom: 0px;">
+                Зона введения: <p class="form-edit form-edit-price form-edit-card-txt" style="text-align: center;">{{ zapis.zone }} </p>
+               </p>
+               <p class="text-sections text-sections-zapisi btn-primary-card" style="text-align: center; margin-bottom: 0px;">
+                Примечание: <p class="form-edit form-edit-price form-edit-card-txt" style="text-align: center;">{{ zapis.primechanie }} </p>
+               </p>
+               <p class="text-sections text-sections-zapisi btn-primary-card" style="text-align: center; margin-bottom: 0px;">
+                Дата следующего визита: <p class="form-edit form-edit-price form-edit-card-txt" style="text-align: center;">{{ zapis.next_date }} </p>
+               </p>
+               
+            </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  function DeleteBtnGdet(obj){
+    
+    obj.parentNode.setAttribute('class', 'col  d-none justify-content-center');
+    document.getElementById(`deleteBtnPod-${obj.value}`).setAttribute('class', 'col  d-flex justify-content-start');
+
+
+    setTimeout( ()=>{
+    obj.parentNode.setAttribute('class', 'col  d-flex justify-content-center');
+    document.getElementById(`deleteBtnPod-${obj.value}`).setAttribute('class', 'col  d-none justify-content-start');
+    }, 3000)
+  }
+</script>

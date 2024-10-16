@@ -118,6 +118,10 @@
                         {% elif zapis.zapis_status == '3' %}
                         <button class="btn-primary btn-primary-zapisi" id="zapis-{{zapis.id}}" data-bs-toggle="modal"
                         data-bs-target="#modalZapisEdit-{{ zapis.id }}" style="margin-top: 0.3rem; background-color: rgb(149, 75, 75);">{{zapis.time_proceduri }} {{ zapis.client_name }}</button>
+                        {% elif zapis.zapis_status == '4' %}
+                        <button class="btn-primary btn-primary-zapisi" id="zapis-{{zapis.id}}" data-bs-toggle="modal"
+                        data-bs-target="#modalZapisEdit-{{ zapis.id }}" style="margin-top: 0.3rem; background-color: rgb(53, 168, 122);">{{zapis.time_proceduri }} {{ zapis.client_name }}</button>
+
 
                         {% endif %}
                         {% endif %}
