@@ -118,7 +118,7 @@ class Zapis(models.Model):
     preparat = models.ForeignKey(to='Preparati', on_delete=models.CASCADE, verbose_name='Препарат', blank=True, null=True, default='')
     kolvo_preparata = models.CharField(max_length=100, verbose_name="Количество препарата", default='', blank=True)
     zone = models.CharField(max_length=300, verbose_name="Зона введения", default='', blank=True)
-    next_date = models.DateField(verbose_name='Следующий визит', default=None, blank=True, null=True)
+    next_date = models.DateField(verbose_name='Следующий визит', default=datetime.now().date(), blank=True, null=True)
 
 
 
