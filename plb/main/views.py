@@ -331,7 +331,7 @@ def CustomCal(request):
 def politica_conf(request):
 
 
-    return render(request, 'main/politica-conf.html')
+    return render(request, 'main/politica-conf.html')  if request.user.is_staff else redirect('home')
 
 
 
@@ -393,7 +393,7 @@ def client_card(request):
 
 
 
-    return render(request, 'main/client-card.html', context=context)
+    return render(request, 'main/client-card.html', context=context) if request.user.is_staff else redirect('home')
 
 
 
