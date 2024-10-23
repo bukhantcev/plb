@@ -4,6 +4,7 @@
   aria-hidden="true">
   <div class="modal-dialog modal-fullscreen">
     <div class="modal-content">
+     
       <div class="header modal-header-wrap" style="padding: 10px; background-image: url('{{media}}/{{usluga.bg_image}}');">
 
 
@@ -39,8 +40,9 @@
         
           
           
-
+ 
       </div>
+      <img id="about1" src="/static/media/bg_uslugi_full/1.png" style="width: 100%; height: 100%; position: fixed; top: 150px; z-index: 99999;" alt="">
       <div class="modal-body main modal-body-uslugi" style="width: 100%; min-height: 740px;">
         <div class="row modal-body-row"
           style="background-image: url('{{media}}/{{usluga.bg_image}}'); min-height: 740px;">
@@ -112,3 +114,14 @@
   }
 </script>
 
+
+<script>
+  
+  document.addEventListener("scroll", function() {
+    elem = document.getElementById('about1')
+    scroll = ((elem.offsetTop + 1) - (elem.offsetTop + window.scrollY/ 400));
+    console.log(scroll)
+    elem.style.opacity = scroll;
+
+});
+  </script>
