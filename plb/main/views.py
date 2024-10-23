@@ -402,5 +402,6 @@ def usluga(request):
     usluga = Uslugi.objects.get(id=request.GET.get('id'))
     context = {
         'usluga': usluga,
+        'media': 'static/media',
     }
     return render(request, 'main/modal-uslugi.html', context=context)
