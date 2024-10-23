@@ -14,5 +14,6 @@ urlpatterns = [
     path('calendar/zapis-edit', views.calendar_edit, name='calendar-gdut'),
     path('politica-conf', views.politica_conf, name='politica-conf'),
     path('client-card', views.client_card, name='client-card'),
+    path('usluga', views.usluga, name='usluga'),
 
 ]

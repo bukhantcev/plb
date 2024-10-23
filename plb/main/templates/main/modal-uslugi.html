@@ -1,25 +1,24 @@
 <!-- Modal -->
+{% extends 'config/layout-blank.html' %}
+
+{% block main %}
+
  {% load my_filters %}
-<div class="modal fade" id="modaluslugi-{{ usluga.id }}" tabindex="-1" aria-labelledby="modaluslugititl"
-  aria-hidden="true">
-  <div class="modal-dialog modal-fullscreen">
-    <div class="modal-content">
+
      
-      <div class="header modal-header-wrap" style="padding: 10px; background-image: url('{{media}}/{{usluga.bg_image}}');">
+      <header class="header" style="position: fixed; width: 100%; padding: 10px; background-image: url('{{media}}/{{usluga.bg_image}}');">
 
 
         <div class="row">
           <div class="col d-flex d-md-none justify-content-end">
-            <button type="button" class="btn btn-primary" style="float: inline-end;" data-bs-dismiss="modal"
-            aria-label="Close">X</button>
+            <button type="button" onclick="BackHome()" class="btn btn-primary" style="float: inline-end;">X</button>
           </div>
           <div class="col-12 col-md-8 offset-md-2 d-flex justify-content-center " >
             <h1 class="modal-title title title-uslugi" id="modaluslugititle">{{ usluga.name }}</h>
           </div>
 
           <div class="col">
-            <button type="button" class="btn btn-primary d-none d-md-flex" style="float: inline-end;" data-bs-dismiss="modal"
-            aria-label="Close">Возврат</button>
+            <button type="button" onclick="BackHome()" class="btn btn-primary d-none d-md-flex" style="float: inline-end;">Возврат</button>
 
 
           </div>
@@ -41,7 +40,8 @@
           
           
  
-      </div>
+      </header>
+      <img id="about1" src="/static/media/bg_uslugi_full/1.png" style="width: 100%; height: 100%; position: fixed; top: 150px; z-index: 99999;" alt="">
       <div class="modal-body main modal-body-uslugi" style="width: 100%; min-height: 740px;">
         <div class="row modal-body-row"
           style="background-image: url('{{media}}/{{usluga.bg_image}}'); min-height: 740px;">
@@ -100,9 +100,7 @@
         </div>
       </div>
 
-    </div>
-  </div>
-</div>
+
 
 <script>
   function ZapisBtn(value){
@@ -114,13 +112,23 @@
 </script>
 
 
-<!-- <script>
+<script>
   
   document.addEventListener("scroll", function() {
     elem = document.getElementById('about1')
-    scroll = ((elem.offsetTop + 1) - (elem.offsetTop + window.scrollY/ 400));
+    scroll = ((elem.offsetTop + 1) - (elem.offsetTop + window.scrollY/ 100));
     console.log(scroll)
     elem.style.opacity = scroll;
 
 });
-  </script> -->
+  </script>
+
+<script>
+  function BackHome(){
+    location = '/';
+  }
+</script>
+
+
+
+{% endblock %}

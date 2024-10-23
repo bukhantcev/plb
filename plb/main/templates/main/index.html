@@ -48,9 +48,8 @@
 
         <form action="" method="get">
 
-          <li class="uslugi-li"><button type="button" data-bs-toggle="modal" data-bs-target="#modaluslugi-{{ usluga.id }}"
-              class="btn btn-primary w-100" style="margin-bottom: 10px;">{{ usluga.name }}</button></li>
-          {% include "main/modal-uslugi.html" %}
+          <li class="uslugi-li"><a href="usluga?id={{ usluga.id }}"><button type="button"
+              class="btn btn-primary w-100" style="margin-bottom: 10px;">{{ usluga.name }}</button></li></a>
         </form>
         {% endif %}
         {% endfor %}
