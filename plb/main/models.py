@@ -4,6 +4,9 @@ import django.utils.timezone
 from django.db import models
 from uuid import uuid4
 import os
+
+from django.db.models import ImageField
+
 from .fields import ImageMaskField
 
 
@@ -27,6 +30,7 @@ class Uslugi(models.Model):
     desc = models.TextField(max_length=30000, verbose_name="Описание", default='', blank=True)
     price = models.CharField(max_length=300, verbose_name='Стоимомть', default='', blank=True)
     bg_image = ImageMaskField(upload_to='uslugi_bg/', verbose_name="Фоновая картинка", blank=True)
+    zastavka = ImageField(upload_to='bg_uslugi_full/', verbose_name='Заставка', blank=True)
 
 
 
