@@ -7,7 +7,7 @@
 
      
       <header class="header" style="position: fixed; width: 100%; padding: 10px;">
-        <div class="header newheader"  id="bg_image" style="opacity: 0;">
+        <div class="header newheader d-sm-none"  id="bg_image" style="opacity: 0;">
           <img src="{{media}}/{{usluga.bg_image}}" style="position: absolute; top: 0; left: 0; height: 100%; width: 100%;" alt="">
         </div>
 
@@ -48,8 +48,11 @@
         <div class="row modal-body-row d-flex justify-content-center"
         
           style="min-height: 740px; margin-top: 200px;">
-          <img id="zastavka" src="{{media}}/{{usluga.zastavka}}" style="width: 100%; border-radius: 30px 30px 30px 30px; height: auto;  position: fixed; top: 180px; z-index: 99999;" alt=" ">
+          <img class="d-sm-none" id="zastavka" src="{{media}}/{{usluga.zastavka}}" style="width: 100%; border-radius: 30px 30px 30px 30px; height: auto;  position: fixed; top: 180px; z-index: 99999;" alt=" ">
+          <div class="col d-none d-sm-flex">
+            <img src="{{media}}/{{usluga.zastavka}}" style="width: 100%; border-radius: 30px 30px 30px 30px; height: auto;" alt=" ">
 
+          </div>
           <div class="col" id="descr-usluga">
             {% autoescape off %}
             <h1 class="title title-uslugi">Описание:</h1><br>
