@@ -1,32 +1,40 @@
+{% extends 'config/layout-blank.html' %}
 
+{% block main %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body style="background-color: #bfbfff; margin: 0;">
+<div class="main" style="min-height: 800px;">
 
-        <div class="container-fluid h-100%">
-        <video id="hhh" class="up" style="width: 100%;" src="../../static/media/welcom1.mp4" autoplay muted></video>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col d-flex justify-content-center">
+      <img width="400px" style="margin-left: 2rem;" src="../../static/media/logoplb.png" alt="">
     </div>
+  </div>
 
-        <script>
-            window.addEventListener('load', () => {
-        
-        
-        setTimeout(() => {
-        location = "/home";
-        
-        }, "0");
-        
-        });
-        </script>
-</body>
-</html>
+  <div class="row">
 
+    <div class="col">
+      <h1 class="title" style="margin-top: 20px; padding: 50px;">Извините, сайт находится на стадии разработки! Возвращайтесь позже!</h1>
+
+    </div>
+  </div>
+
+</div>
+
+</div>
 
 
 
+<script>
+
+    function MainRedirect() {
+        location = "/";
+    }
+
+
+
+;
+</script>
+
+
+{% endblock %}
