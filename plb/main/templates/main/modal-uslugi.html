@@ -116,12 +116,25 @@
   }
 </script>
 
+<script>
+window.addEventListener('load', () => {
+  elem = document.getElementById('zastavka');
+  header = document.getElementById('bg_image');
+  header_height = header.offsetHeight;
+  elem.style.top = `${header_height + 30}px`;
+  console.log(header_height);
+
+});
+
+</script>
 
 <script>
   
   document.addEventListener("scroll", function() {
-    elem = document.getElementById('zastavka')
-    header = document.getElementById('bg_image')
+
+    elem = document.getElementById('zastavka');
+    header = document.getElementById('bg_image');
+
     scroll = ((elem.offsetTop + 1) - (elem.offsetTop + window.scrollY/ 200));
     elem.style.opacity = scroll;
     if (elem.style.opacity <= 0){
