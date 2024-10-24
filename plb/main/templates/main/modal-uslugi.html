@@ -42,11 +42,11 @@
  
       </header>
       
-      <div class="modal-body main modal-body-uslugi" style="margin-top: 170px; width: 100%; min-height: 740px;">
+      <div class="modal-body main modal-body-uslugi" style="margin-top: 150px; width: 100%; min-height: 740px;">
         <div class="row modal-body-row d-flex justify-content-center"
         
           style="min-height: 740px; margin-top: 200px;">
-          <img id="about1" src="{{media}}/{{usluga.zastavka}}" style="width: 100%; border-radius: 14px 14px 14px 14px; height: auto;  position: fixed; top: 200px; z-index: 99999;" alt="">
+          <img id="about1" src="{{media}}/{{usluga.zastavka}}" style="width: 100%; border-radius: 30px 30px 30px 30px; height: auto;  position: fixed; top: 200px; z-index: 99999;" alt="">
 
           <div class="col" id="descr-usluga">
             {% autoescape off %}
@@ -119,7 +119,7 @@
   
   document.addEventListener("scroll", function() {
     elem = document.getElementById('about1')
-    scroll = ((elem.offsetTop + 1) - (elem.offsetTop + window.scrollY/ 100));
+    scroll = ((elem.offsetTop + 1) - (elem.offsetTop + window.scrollY/ 200));
     console.log(scroll)
     elem.style.opacity = scroll;
 
