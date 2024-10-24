@@ -136,8 +136,8 @@ class Preparati(models.Model):
 
     name = models.CharField(max_length=100, verbose_name='Название', default='')
     proishogdenie = models.CharField(max_length=100, verbose_name='Страна происхождения', default='', blank=True)
-    edinica = models.CharField(max_length=20, verbose_name='Единица измерения', default='')
-    kolichestvo = models.CharField(max_length=30, verbose_name='Количество', default='')
+    edinica = models.CharField(max_length=20, verbose_name='Единица измерения', default='', blank=True)
+    kolichestvo = models.CharField(max_length=30, verbose_name='Количество', default='', blank=True)
     price = models.CharField(max_length=100, verbose_name='Цена', default='')
     procedura = models.ForeignKey(Uslugi, on_delete=models.CASCADE, verbose_name='Процедура', blank=True, null=True)
     opisanie = models.TextField(max_length=1000, verbose_name='Описание', default='', blank=True)
