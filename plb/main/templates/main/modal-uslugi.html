@@ -6,8 +6,10 @@
  {% load my_filters %}
 
      
-      <header class="header" style="position: fixed; width: 100%; padding: 10px; background-image: url('{{media}}/{{usluga.bg_image}}');">
-
+      <header class="header" style="position: fixed; width: 100%; padding: 10px;">
+        <div class="header newheader"  id="bg_image">
+          <img src="{{media}}/{{usluga.bg_image}}" style="position: absolute; top: 0; left: 0; height: 100%; width: 100%;" alt="">
+        </div>
 
         <div class="row">
           <div class="col d-flex d-md-none justify-content-end">
@@ -46,7 +48,7 @@
         <div class="row modal-body-row d-flex justify-content-center"
         
           style="min-height: 740px; margin-top: 200px;">
-          <img id="about1" src="{{media}}/{{usluga.zastavka}}" style="width: 100%; border-radius: 30px 30px 30px 30px; height: auto;  position: fixed; top: 180px; z-index: 99999;" alt="">
+          <img id="zastavka" src="{{media}}/{{usluga.zastavka}}" style="width: 100%; border-radius: 30px 30px 30px 30px; height: auto;  position: fixed; top: 180px; z-index: 99999;" alt="">
 
           <div class="col" id="descr-usluga">
             {% autoescape off %}
@@ -118,13 +120,21 @@
 <script>
   
   document.addEventListener("scroll", function() {
-    elem = document.getElementById('about1')
+    elem = document.getElementById('zastavka')
+    header = document.getElementById('bg_image')
     scroll = ((elem.offsetTop + 1) - (elem.offsetTop + window.scrollY/ 200));
-    console.log(scroll)
     elem.style.opacity = scroll;
+    if (elem.style.opacity <= 0){
+      header.style.opacity = 1;
+    }
+    else {
+      header.style.opacity = 0;
+    }
 
 });
   </script>
+
+
 
 <script>
   function BackHome(){
