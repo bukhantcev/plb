@@ -28,4 +28,4 @@ class ZapisAdmin(admin.ModelAdmin):
 class PreparatiAdmin(admin.ModelAdmin):
     list_display = ( 'name', 'kolichestvo', 'edinica', 'procedura', 'price',)
     list_editable = ('kolichestvo', 'edinica', 'procedura', 'price',)
-    list_filter = ('name', 'kolichestvo', 'edinica', 'procedura', 'price', 'proishogdenie',)
+    list_filter = ('procedura',)
