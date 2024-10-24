@@ -403,5 +403,6 @@ def usluga(request):
     context = {
         'usluga': usluga,
         'media': 'static/media',
+        'preparati': Preparati.objects.all(),
     }
     return render(request, 'main/modal-uslugi.html', context=context)
