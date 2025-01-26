@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-r2+=gk7or&w==%f_((b5j+!4xprq*lz-9sjv)*$4=(6a^k6&c2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = 'runserver' in sys.argv
+print(DEBUG)
 # DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '78.111.88.18', '79.174.81.159', 'pourlabeaute.ru']
@@ -115,7 +117,7 @@ TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
-USE_TZ = False
+USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
