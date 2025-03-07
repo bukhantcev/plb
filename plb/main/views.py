@@ -44,7 +44,8 @@ def home(request):
                }
 
 
-    return render(request, 'main/home.html' if request.user.is_staff else 'main/welcome.html', context=context)
+    # return render(request, 'main/home.html' if request.user.is_staff else 'main/welcome.html', context=context)
+    return render(request, 'main/home.html', context=context)
 
 #----------------------------ZAPIS BEZ USLUGI
 def zapis(request):
