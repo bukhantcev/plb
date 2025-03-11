@@ -15,6 +15,7 @@ from telegram.telegram_base import sendMessage
 from django.views.decorators.csrf import csrf_exempt
 import json
 import openai
+from .learning import context
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -39,7 +40,7 @@ def chiara_chat(request):
             response = openai_client.chat.completions.create(
                 model="gpt-4",
                 messages=[
-                    {"role": "system", "content": "Ты - Chiara, эксперт по косметологии, помогай пользователям. Отвечай максимально коротко."},
+                    {"role": "system", "content": context},
                     {"role": "user", "content": user_message}
                 ]
             )
