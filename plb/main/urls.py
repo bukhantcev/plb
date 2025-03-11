@@ -15,5 +15,6 @@ urlpatterns = [
     path('politica-conf', views.politica_conf, name='politica-conf'),
     path('client-card', views.client_card, name='client-card'),
     path('usluga', views.usluga, name='usluga'),
+    path("api/chiara-chat/", views.chiara_chat, name="chiara_chat"),
 
 ]

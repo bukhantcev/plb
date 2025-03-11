@@ -1,16 +1,19 @@
 import json
+import os
 
 import requests
 from urllib3 import request
 
-from .input_config import BOT_TOKEN, CHAT_ID
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
-BOT_TOKEN = BOT_TOKEN
+BOT_TOKEN = os.getenv('BOT_TOKEN')
 
 
 
-CHAT_ID = CHAT_ID
+CHAT_ID = os.getenv("CHAT_ID")
 
 def sendMessage():
     try:

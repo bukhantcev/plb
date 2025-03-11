@@ -1,4 +1,6 @@
+import os
 
+from django.http import JsonResponse
 from datetime import datetime
 
 from django.shortcuts import render, redirect
@@ -10,6 +12,54 @@ from .models import Uslugi, Uslugi_groups, Sertifikate, Zapis, Klients, Preparat
 from .calendar_fill import fill_cal
 
 from telegram.telegram_base import sendMessage
+from django.views.decorators.csrf import csrf_exempt
+import json
+import openai
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# Настроим API-ключ (замени на свой, если нужно)
+
+
+openai_client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+@csrf_exempt
+def chiara_chat(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            user_message = data.get("message", "").strip()
+
+            if not user_message:
+                return JsonResponse({"error": "Пустой запрос"}, status=400)
+
+            print(f"[DEBUG] Вопрос: {user_message}")  # Лог
+
+            response = openai_client.chat.completions.create(
+                model="gpt-4",
+                messages=[
+                    {"role": "system", "content": "Ты - Chiara, эксперт по косметологии, помогай пользователям. Отвечай максимально коротко."},
+                    {"role": "user", "content": user_message}
+                ]
+            )
+
+            bot_reply = response.choices[0].message.content  # Новый формат
+            print(f"[DEBUG] Ответ Chiara: {bot_reply}")  # Лог
+
+            return JsonResponse({"reply": bot_reply})
+
+        except openai.OpenAIError as e:
+            print(f"[ERROR] OpenAI ошибка: {e}")
+            return JsonResponse({"error": f"Ошибка OpenAI: {str(e)}"}, status=500)
+        except json.JSONDecodeError:
+            print("[ERROR] Ошибка JSON в запросе")
+            return JsonResponse({"error": "Ошибка JSON"}, status=400)
+        except Exception as e:
+            print(f"[ERROR] Неизвестная ошибка: {e}")
+            return JsonResponse({"error": f"Ошибка сервера: {str(e)}"}, status=500)
+
+    return JsonResponse({"error": "Неверный метод запроса"}, status=405)
 
 
 def welcome(request):
