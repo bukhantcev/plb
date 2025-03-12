@@ -38,7 +38,7 @@ def chiara_chat(request):
             print(f"[DEBUG] Вопрос: {user_message}")  # Лог
             my_context = context
             if user_message == 'МойСекрет':
-                my_context = 'напиши любовное письмо от Саши Свете, используй "моя девочка", "моя милая", "Любимая", "моя радость" и др. Не называй ее мой секрет'
+                my_context = 'напиши любовное письмо от Саши для Светы, используй "моя девочка", "моя милая", "Любимая", "моя радость" и др. Не называй ее мой секрет'
 
             response = openai_client.chat.completions.create(
                 model="gpt-3.5-turbo",
