@@ -36,11 +36,14 @@ def chiara_chat(request):
                 return JsonResponse({"error": "Пустой запрос"}, status=400)
 
             print(f"[DEBUG] Вопрос: {user_message}")  # Лог
+            my_context = context
+            if user_message == 'МойСекрет':
+                my_context = 'напиши любовное письмо от Саши Свете, используй "моя девочка", "моя милая", "Любимая", "моя радость" и др. Не называй ее мой секрет'
 
             response = openai_client.chat.completions.create(
-                model="gpt-4",
+                model="gpt-3.5-turbo",
                 messages=[
-                    {"role": "system", "content": context},
+                    {"role": "system", "content": my_context},
                     {"role": "user", "content": user_message}
                 ]
             )
