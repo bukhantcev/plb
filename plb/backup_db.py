@@ -22,7 +22,8 @@ with open(DB_PATH, "rb") as file:
     response = requests.put(
         f"{YANDEX_DISK_URL}/{BACKUP_FOLDER}/{backup_filename}",
         auth=(YANDEX_LOGIN, YANDEX_PASSWORD),
-        data=file
+        data=file,
+        verify = False
     )
 
 # Проверяем результат загрузки
