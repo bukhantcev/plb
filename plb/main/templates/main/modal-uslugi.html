@@ -192,34 +192,25 @@ window.addEventListener('load', () => {
 <script>
   function toggleOpisanie(id) {
     const block = document.getElementById('opisanie-' + id);
-    const isOpen = block.getAttribute('data-open') === 'true';
-
-    if (isOpen) {
-      // Закрытие
-      block.style.maxHeight = block.scrollHeight + 'px'; // стартовое значение
-      block.offsetHeight; // принудительный reflow
-      block.style.maxHeight = '0px';
-      block.setAttribute('data-open', 'false');
-    } else {
-      // Открытие
-      block.style.display = 'block'; // гарантирует корректный scrollHeight
-      const fullHeight = block.scrollHeight;
-      block.style.maxHeight = '0px';
-      block.offsetHeight; // принудительный reflow
-      block.style.maxHeight = fullHeight + 'px';
-      block.setAttribute('data-open', 'true');
-    }
+    block.classList.toggle('show');
   }
 </script>
 
 <style>
   .opisanie-collapse {
-    max-height: 0;
-    overflow: hidden;
-    display: block;
-    transition: max-height 0.3s ease;
+    display: none;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: opacity 0.3s ease, transform 0.3s ease;
     background-color: #f8f9fa;
     border-top: 1px solid #ccc;
+  }
+
+  .opisanie-collapse.show {
+    display: block;
+    opacity: 1;
+    transform: scaleY(1);
   }
 
   .preparat-row {
