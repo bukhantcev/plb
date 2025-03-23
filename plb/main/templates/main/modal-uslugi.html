@@ -163,23 +163,24 @@ window.addEventListener('load', () => {
 </script>
 
 <script>
-  
   document.addEventListener("scroll", function() {
+    const elem = document.getElementById('zastavka');
+    const header = document.getElementById('bg_image');
 
-    elem = document.getElementById('zastavka');
-    header = document.getElementById('bg_image');
+    const scroll = ((elem.offsetTop + 1) - (elem.offsetTop + window.scrollY / 200));
+    const opacity = Math.max(scroll, 0); // защита от отрицательных значений
 
-    scroll = ((elem.offsetTop + 1) - (elem.offsetTop + window.scrollY/ 200));
-    elem.style.opacity = scroll;
-    if (elem.style.opacity <= 0){
+    elem.style.opacity = opacity;
+
+    if (opacity <= 0) {
+      elem.style.display = 'none';
       header.style.opacity = 1;
-    }
-    else {
+    } else {
+      elem.style.display = 'block';
       header.style.opacity = 0;
     }
-
-});
-  </script>
+  });
+</script>
 
 
 
