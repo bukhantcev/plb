@@ -25,7 +25,7 @@ from .fields import ImageMaskField
 
 
 class Uslugi(models.Model):
-    name = models.CharField(max_length=30, verbose_name='Название процедуры')
+    name = models.CharField(max_length=300, verbose_name='Название процедуры')
     group = models.ForeignKey(to="Uslugi_groups", on_delete=models.CASCADE, verbose_name="Группы процедур")
     desc = models.TextField(max_length=30000, verbose_name="Описание", default='', blank=True)
     price = models.TextField(max_length=30000, verbose_name='Стоимомть', default='', blank=True)
