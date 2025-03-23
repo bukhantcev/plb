@@ -126,7 +126,7 @@
               <!-- Скрываемый блок с описанием -->
               <div id="opisanie-{{ forloop.counter }}" class="opisanie-collapse">
                 <div class="p-2">
-                  <p class="text-sections text-sections-modal-uslugi mb-0 opisanie-text">
+                  <p class="text-sections text-sections-modal-uslugi mb-0 opisanie-text" style="font-family: 'Roboto', sans-serif; font-style: italic;">
                     {{ preparat.opisanie }}
                   </p>
                 </div>
@@ -192,41 +192,29 @@ window.addEventListener('load', () => {
 <script>
   function toggleOpisanie(id) {
     const block = document.getElementById('opisanie-' + id);
-    const isOpen = block.classList.contains('open');
 
-    if (isOpen) {
-      block.style.maxHeight = null;
-      block.classList.remove('open');
-    } else {
-      // Хак: сбрасываем, потом снова измеряем
-      block.style.maxHeight = 'none';
-      const scrollHeight = block.scrollHeight;
+    if (block.style.maxHeight && block.style.maxHeight !== '0px') {
+      // Закрыть
       block.style.maxHeight = '0px';
-
-      setTimeout(() => {
-        block.style.maxHeight = scrollHeight + 'px';
-        block.classList.add('open');
-      }, 10);
+    } else {
+      // Открыть
+      block.style.maxHeight = block.scrollHeight + 'px';
     }
   }
 </script>
 
 <style>
-    .opisanie-collapse {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-      background-color: #f8f9fa;
-      border-top: 1px solid #ccc;
-    }
-  
-    .opisanie-collapse.open {
-      /* Управляется JS через inline-style */
-    }
-  
-    .preparat-row {
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent; /* для iOS */
-    }
-  </style>
+  .opisanie-collapse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ccc;
+  }
+
+  .preparat-row {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+</style>
 {% endblock %}
