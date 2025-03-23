@@ -192,19 +192,21 @@ window.addEventListener('load', () => {
 <script>
   function toggleOpisanie(id) {
     const block = document.getElementById('opisanie-' + id);
-
     const isOpen = block.getAttribute('data-open') === 'true';
 
     if (isOpen) {
-      // Закрыть
-      block.style.maxHeight = block.scrollHeight + 'px'; // чтобы анимация пошла от текущей высоты
-      requestAnimationFrame(() => {
-        block.style.maxHeight = '0px';
-      });
+      // Закрытие
+      block.style.maxHeight = block.scrollHeight + 'px'; // стартовое значение
+      block.offsetHeight; // принудительный reflow
+      block.style.maxHeight = '0px';
       block.setAttribute('data-open', 'false');
     } else {
-      // Открыть
-      block.style.maxHeight = block.scrollHeight + 'px';
+      // Открытие
+      block.style.display = 'block'; // гарантирует корректный scrollHeight
+      const fullHeight = block.scrollHeight;
+      block.style.maxHeight = '0px';
+      block.offsetHeight; // принудительный reflow
+      block.style.maxHeight = fullHeight + 'px';
       block.setAttribute('data-open', 'true');
     }
   }
@@ -214,6 +216,7 @@ window.addEventListener('load', () => {
   .opisanie-collapse {
     max-height: 0;
     overflow: hidden;
+    display: block;
     transition: max-height 0.3s ease;
     background-color: #f8f9fa;
     border-top: 1px solid #ccc;
