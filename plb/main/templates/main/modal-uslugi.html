@@ -192,8 +192,14 @@ window.addEventListener('load', () => {
 
 <script>
   function toggleOpisanie(id) {
-    const block = document.getElementById('opisanie-' + id);
-    block.classList.toggle('show');
+    const all = document.querySelectorAll('.opisanie-collapse');
+    all.forEach(el => {
+      if (el.id === 'opisanie-' + id) {
+        el.classList.toggle('show');
+      } else {
+        el.classList.remove('show');
+      }
+    });
   }
 </script>
 
