@@ -191,25 +191,30 @@ window.addEventListener('load', () => {
 </script>
 <script>
   function toggleOpisanie(id) {
-    const target = document.getElementById('opisanie-' + id);
+    const opisanie = document.getElementById('opisanie-' + id);
     const all = document.querySelectorAll('.opisanie-collapse');
 
     all.forEach(el => {
-      if (el !== target) {
+      if (el !== opisanie) {
         el.classList.remove('show');
+        el.style.maxHeight = null;
       }
     });
 
-    const wasVisible = target.classList.contains('show');
-    if (wasVisible) {
-      target.classList.remove('show');
+    const isVisible = opisanie.classList.contains('show');
+
+    if (isVisible) {
+      opisanie.classList.remove('show');
+      opisanie.style.maxHeight = null;
     } else {
-      target.classList.add('show');
-      // Дождёмся окончания рендера, затем скроллим
+      opisanie.classList.add('show');
+      opisanie.style.maxHeight = opisanie.scrollHeight + 'px';
+
       setTimeout(() => {
-        const offset = target.getBoundingClientRect().top + window.scrollY - 100; // чуть выше
+        const rem = parseFloat(getComputedStyle(document.documentElement).fontSize); // 1rem в px
+        const offset = opisanie.getBoundingClientRect().top + window.scrollY - (20 * rem);
         window.scrollTo({ top: offset, behavior: 'smooth' });
-      }, 10);
+      }, 100);
     }
   }
 </script>
@@ -225,7 +230,6 @@ window.addEventListener('load', () => {
   }
 
   .opisanie-collapse.show {
-    max-height: 500px; /* больше максимальной возможной высоты контента */
     opacity: 1;
   }
 
