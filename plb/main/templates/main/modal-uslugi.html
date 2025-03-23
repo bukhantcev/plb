@@ -74,6 +74,28 @@
               </div>
             </div>
 
+            {% for preparat in preparati %}
+            {% if preparat.procedura == usluga %}
+              {% if not forloop.counter|chet %}
+                <script>
+                  document.getElementById('price').setAttribute('style', 'display: none; ');
+                  document.getElementById('price-usluga-title').setAttribute('class', 'row d-none d-sm-flex');
+                </script>
+                <div class="row preparat-row" id="price-usluga" onclick="toggleOpisanie('{{ forloop.counter }}')">
+              {% else %}
+                <div class="row preparat-row" id="price-usluga" onclick="toggleOpisanie('{{ forloop.counter }}')" style="background-color: #e6e6f8;">
+              {% endif %}
+                <div class="col">
+                  <p class="text-sections text-sections-modal-uslugi">{{ preparat.name }}</p>
+                </div>
+                <div class="col">
+                  <p class="text-sections text-sections-modal-uslugi">{{ preparat.kolichestvo }} {{ preparat.edinica }}</p>
+                </div>
+                <div class="col">
+                  <p class="text-sections text-sections-modal-uslugi" style="float: right;">{{ preparat.price }}</p>
+                </div>
+              </div>
+{% comment %} 
               {% for preparat in preparati %}
               {% if preparat.procedura == usluga %}
               {% if not forloop.counter|chet %}
@@ -98,8 +120,17 @@
                 </div>
               </div>
               {% endif %}
-              {% endfor %}
+              {% endfor %} {% endcomment %}
 
+          
+              <!-- Скрываемый блок с описанием -->
+              <div id="opisanie-{{ forloop.counter }}" class="opisanie-collapse">
+                <div class="p-2">
+                  <p class="text-sections text-sections-modal-uslugi mb-0">{{ preparat.opisanie }}</p>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
           </div>
           
         </div>
@@ -156,6 +187,34 @@ window.addEventListener('load', () => {
   }
 </script>
 
+<script>
+  function toggleOpisanie(id) {
+    const block = document.getElementById('opisanie-' + id);
+    if (block.classList.contains('open')) {
+      block.style.maxHeight = null;
+      block.classList.remove('open');
+    } else {
+      block.style.maxHeight = block.scrollHeight + "px";
+      block.classList.add('open');
+    }
+  }
+</script>
 
+<style>
+  .opisanie-collapse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ccc;
+  }
 
+  .opisanie-collapse.open {
+    /* ничего, управляем через JS */
+  }
+
+  .preparat-row {
+    cursor: pointer;
+  }
+</style>
 {% endblock %}
