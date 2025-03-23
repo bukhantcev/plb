@@ -81,9 +81,13 @@
                   document.getElementById('price').setAttribute('style', 'display: none; ');
                   document.getElementById('price-usluga-title').setAttribute('class', 'row d-none d-sm-flex');
                 </script>
-                <div class="row preparat-row" id="price-usluga" onclick="toggleOpisanie('{{ forloop.counter }}')">
+                <div class="row preparat-row" id="price-usluga" {% if preparat.opisanie %}
+                onclick="toggleOpisanie('{{ forloop.counter }}')"
+              {% endif %}>
               {% else %}
-                <div class="row preparat-row" id="price-usluga" onclick="toggleOpisanie('{{ forloop.counter }}')" style="background-color: #e6e6f8;">
+                <div class="row preparat-row" id="price-usluga" {% if preparat.opisanie %}
+                onclick="toggleOpisanie('{{ forloop.counter }}')"
+              {% endif %} style="background-color: #e6e6f8;">
               {% endif %}
                 <div class="col">
                   <p class="text-sections text-sections-modal-uslugi">{{ preparat.name }}</p>
