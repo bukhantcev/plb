@@ -126,7 +126,9 @@
               <!-- Скрываемый блок с описанием -->
               <div id="opisanie-{{ forloop.counter }}" class="opisanie-collapse">
                 <div class="p-2">
-                  <p class="text-sections text-sections-modal-uslugi mb-0">{{ preparat.opisanie }}</p>
+                  <p class="text-sections text-sections-modal-uslugi mb-0 opisanie-text">
+                    {{ preparat.opisanie }}
+                  </p>
                 </div>
               </div>
             {% endif %}
@@ -190,31 +192,41 @@ window.addEventListener('load', () => {
 <script>
   function toggleOpisanie(id) {
     const block = document.getElementById('opisanie-' + id);
-    if (block.classList.contains('open')) {
+    const isOpen = block.classList.contains('open');
+
+    if (isOpen) {
       block.style.maxHeight = null;
       block.classList.remove('open');
     } else {
-      block.style.maxHeight = block.scrollHeight + "px";
-      block.classList.add('open');
+      // Хак: сбрасываем, потом снова измеряем
+      block.style.maxHeight = 'none';
+      const scrollHeight = block.scrollHeight;
+      block.style.maxHeight = '0px';
+
+      setTimeout(() => {
+        block.style.maxHeight = scrollHeight + 'px';
+        block.classList.add('open');
+      }, 10);
     }
   }
 </script>
 
 <style>
-  .opisanie-collapse {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    background-color: #f8f9fa;
-    border-top: 1px solid #ccc;
-  }
-
-  .opisanie-collapse.open {
-    /* ничего, управляем через JS */
-  }
-
-  .preparat-row {
-    cursor: pointer;
-  }
-</style>
+    .opisanie-collapse {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background-color: #f8f9fa;
+      border-top: 1px solid #ccc;
+    }
+  
+    .opisanie-collapse.open {
+      /* Управляется JS через inline-style */
+    }
+  
+    .preparat-row {
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent; /* для iOS */
+    }
+  </style>
 {% endblock %}
