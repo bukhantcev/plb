@@ -126,7 +126,7 @@
               <!-- Скрываемый блок с описанием -->
               <div id="opisanie-{{ forloop.counter }}" class="opisanie-collapse">
                 <div class="p-2">
-                  <p class="text-sections text-sections-modal-uslugi mb-0 opisanie-text" style="font-family: 'Roboto', sans-serif; font-style: italic;">
+                  <p class="text-sections text-sections-modal-uslugi mb-0" style="font-family: 'Roboto', sans-serif; font-style: italic;">
                     {{ preparat.opisanie }}
                   </p>
                 </div>
@@ -193,12 +193,19 @@ window.addEventListener('load', () => {
   function toggleOpisanie(id) {
     const block = document.getElementById('opisanie-' + id);
 
-    if (block.style.maxHeight && block.style.maxHeight !== '0px') {
+    const isOpen = block.getAttribute('data-open') === 'true';
+
+    if (isOpen) {
       // Закрыть
-      block.style.maxHeight = '0px';
+      block.style.maxHeight = block.scrollHeight + 'px'; // чтобы анимация пошла от текущей высоты
+      requestAnimationFrame(() => {
+        block.style.maxHeight = '0px';
+      });
+      block.setAttribute('data-open', 'false');
     } else {
       // Открыть
       block.style.maxHeight = block.scrollHeight + 'px';
+      block.setAttribute('data-open', 'true');
     }
   }
 </script>
