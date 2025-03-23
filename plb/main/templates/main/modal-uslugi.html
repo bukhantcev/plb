@@ -189,35 +189,44 @@ window.addEventListener('load', () => {
     location = '/';
   }
 </script>
-
 <script>
   function toggleOpisanie(id) {
+    const target = document.getElementById('opisanie-' + id);
     const all = document.querySelectorAll('.opisanie-collapse');
+
     all.forEach(el => {
-      if (el.id === 'opisanie-' + id) {
-        el.classList.toggle('show');
-      } else {
+      if (el !== target) {
         el.classList.remove('show');
       }
     });
+
+    const wasVisible = target.classList.contains('show');
+    if (wasVisible) {
+      target.classList.remove('show');
+    } else {
+      target.classList.add('show');
+      // Дождёмся окончания рендера, затем скроллим
+      setTimeout(() => {
+        const offset = target.getBoundingClientRect().top + window.scrollY - 100; // чуть выше
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+      }, 10);
+    }
   }
 </script>
 
 <style>
   .opisanie-collapse {
-    display: none;
+    max-height: 0;
+    overflow: hidden;
     opacity: 0;
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
     background-color: #f8f9fa;
     border-top: 1px solid #ccc;
   }
 
   .opisanie-collapse.show {
-    display: block;
+    max-height: 500px; /* больше максимальной возможной высоты контента */
     opacity: 1;
-    transform: scaleY(1);
   }
 
   .preparat-row {
